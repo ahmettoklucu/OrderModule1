@@ -13,12 +13,19 @@ namespace OrderModule.Bussiness.Concrete
     public class ProductManager:IProductService
     {
         private IProductDal _productDal;
+        private IOrderDetailDal _orderDetailDal;
 
         public ProductManager(IProductDal productDal) 
         { 
             _productDal = productDal;
-
         }
+
+        public void Add(Product product)
+        {
+            product.UnitsOnOrder=Convert.ToInt16(_orderDetailDal.GetAll(p=>p.ProductID==product.ProductID).Sum(p=>p.Quantity));    
+            _productDal.Add(product);
+        }
+
         public List<Product> GetAll()
         {
             return _productDal.GetAll();

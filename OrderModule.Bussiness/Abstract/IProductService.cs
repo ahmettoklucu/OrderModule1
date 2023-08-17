@@ -11,6 +11,7 @@ namespace OrderModule.Bussiness.Abstract
     {
         List<Product> GetAll();
         List<Product> GetProductByCategory(int CategoryId);
-         List<Product> GetProductByProductName(string producName);
+        List<Product> GetProductByProductName(string producName);
+        void  Add(Product product);
     }
 }

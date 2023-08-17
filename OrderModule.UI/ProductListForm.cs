@@ -42,25 +42,57 @@ namespace OrderModule.UI
             cbxCategory.DisplayMember = "CategoryName";
             cbxCategory.ValueMember = "CategoryId";
         }
-
         private void cbxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbxCategory.SelectedIndex!=null)
+            try
+            {
+                if (cbxCategory.SelectedIndex != null)
+                {
+
+                    dgwProduct.DataSource = _productService.GetProductByCategory(cbxCategory.SelectedIndex);
+                }
+                else
+                {
+                    LoadProduct();
+                }
+
+            }
+            catch(Exception ex)
             {
                 
-                dgwProduct.DataSource= _productService.GetProductByCategory(cbxCategory.SelectedIndex);
             }
-            else
+            
+        }
+        private void tbxProductName_TextChanged(object sender, EventArgs e)
+        {
+            try
             {
-                LoadProduct();
+                if (String.IsNullOrEmpty(tbxProductName.Text))
+                {
+                    dgwProduct.DataSource = _productService.GetProductByProductName(tbxProductName.Text);
+                }
+                else
+                {
+                    LoadProduct();
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
         }
 
-        private void tbxProductName_TextChanged(object sender, EventArgs e)
+        private void ProductAdd_Click(object sender, EventArgs e)
         {
+            ProductAddForm product = new ProductAddForm();
 
-                dgwProduct.DataSource = _productService.GetProductByProductName(tbxProductName.Text);
+            product.Show();
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MenuForm menuForm = new MenuForm();
+            menuForm.Show();
         }
     }
 }

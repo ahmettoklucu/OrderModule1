@@ -56,6 +56,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm.Designer.cs">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductAddForm.Designer.cs">
+      <DependentUpon>ProductAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +76,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ProductAddForm.resx">
+      <DependentUpon>ProductAddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductListForm.resx">
       <DependentUpon>ProductListForm.cs</DependentUpon>
     </EmbeddedResource>
