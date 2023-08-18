@@ -42,13 +42,13 @@
             this.dgwProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwProduct.Location = new System.Drawing.Point(18, 51);
             this.dgwProduct.Name = "dgwProduct";
-            this.dgwProduct.Size = new System.Drawing.Size(1233, 387);
+            this.dgwProduct.Size = new System.Drawing.Size(894, 387);
             this.dgwProduct.TabIndex = 0;
             // 
             // cbxCategory
             // 
             this.cbxCategory.FormattingEnabled = true;
-            this.cbxCategory.Location = new System.Drawing.Point(1130, 12);
+            this.cbxCategory.Location = new System.Drawing.Point(791, 11);
             this.cbxCategory.Name = "cbxCategory";
             this.cbxCategory.Size = new System.Drawing.Size(121, 21);
             this.cbxCategory.TabIndex = 1;
@@ -56,7 +56,7 @@
             // 
             // tbxProductName
             // 
-            this.tbxProductName.Location = new System.Drawing.Point(974, 12);
+            this.tbxProductName.Location = new System.Drawing.Point(602, 12);
             this.tbxProductName.Name = "tbxProductName";
             this.tbxProductName.Size = new System.Drawing.Size(129, 20);
             this.tbxProductName.TabIndex = 2;
@@ -95,7 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1263, 449);
+            this.ClientSize = new System.Drawing.Size(931, 449);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ProductUpdate);
             this.Controls.Add(this.ProductAdd);

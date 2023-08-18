@@ -45,21 +45,23 @@
             this.button1 = new System.Windows.Forms.Button();
             this.nmrUnitInStock = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
+            this.CategoryAdd = new System.Windows.Forms.Button();
+            this.SupplierAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nmrUnitPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrUnitInStock)).BeginInit();
             this.SuspendLayout();
             // 
             // tbxProductName
             // 
-            this.tbxProductName.Location = new System.Drawing.Point(128, 12);
+            this.tbxProductName.Location = new System.Drawing.Point(128, 25);
             this.tbxProductName.Name = "tbxProductName";
-            this.tbxProductName.Size = new System.Drawing.Size(146, 20);
+            this.tbxProductName.Size = new System.Drawing.Size(179, 20);
             this.tbxProductName.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 15);
+            this.label1.Location = new System.Drawing.Point(8, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 1;
@@ -112,7 +114,7 @@
             // 
             this.tbxQuantityPerUnit.Location = new System.Drawing.Point(128, 143);
             this.tbxQuantityPerUnit.Name = "tbxQuantityPerUnit";
-            this.tbxQuantityPerUnit.Size = new System.Drawing.Size(146, 20);
+            this.tbxQuantityPerUnit.Size = new System.Drawing.Size(179, 20);
             this.tbxQuantityPerUnit.TabIndex = 7;
             // 
             // nmrUnitPrice
@@ -129,7 +131,7 @@
             0,
             0});
             this.nmrUnitPrice.Name = "nmrUnitPrice";
-            this.nmrUnitPrice.Size = new System.Drawing.Size(146, 20);
+            this.nmrUnitPrice.Size = new System.Drawing.Size(179, 20);
             this.nmrUnitPrice.TabIndex = 8;
             // 
             // label5
@@ -155,12 +157,12 @@
             this.cbxDicontinued.FormattingEnabled = true;
             this.cbxDicontinued.Location = new System.Drawing.Point(128, 254);
             this.cbxDicontinued.Name = "cbxDicontinued";
-            this.cbxDicontinued.Size = new System.Drawing.Size(146, 21);
+            this.cbxDicontinued.Size = new System.Drawing.Size(179, 21);
             this.cbxDicontinued.TabIndex = 11;
             // 
             // ProductAdded
             // 
-            this.ProductAdded.Location = new System.Drawing.Point(199, 290);
+            this.ProductAdded.Location = new System.Drawing.Point(232, 290);
             this.ProductAdded.Name = "ProductAdded";
             this.ProductAdded.Size = new System.Drawing.Size(75, 23);
             this.ProductAdded.TabIndex = 12;
@@ -170,7 +172,7 @@
             // 
             // ProductList
             // 
-            this.ProductList.Location = new System.Drawing.Point(103, 290);
+            this.ProductList.Location = new System.Drawing.Point(128, 290);
             this.ProductList.Name = "ProductList";
             this.ProductList.Size = new System.Drawing.Size(75, 23);
             this.ProductList.TabIndex = 13;
@@ -197,7 +199,7 @@
             0,
             0});
             this.nmrUnitInStock.Name = "nmrUnitInStock";
-            this.nmrUnitInStock.Size = new System.Drawing.Size(146, 20);
+            this.nmrUnitInStock.Size = new System.Drawing.Size(180, 20);
             this.nmrUnitInStock.TabIndex = 15;
             // 
             // label7
@@ -209,11 +211,33 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "Stok Miktari";
             // 
+            // CategoryAdd
+            // 
+            this.CategoryAdd.Location = new System.Drawing.Point(280, 89);
+            this.CategoryAdd.Name = "CategoryAdd";
+            this.CategoryAdd.Size = new System.Drawing.Size(27, 24);
+            this.CategoryAdd.TabIndex = 17;
+            this.CategoryAdd.Text = "+";
+            this.CategoryAdd.UseVisualStyleBackColor = true;
+            this.CategoryAdd.Click += new System.EventHandler(this.CategoryAdd_Click);
+            // 
+            // SupplierAdd
+            // 
+            this.SupplierAdd.Location = new System.Drawing.Point(280, 51);
+            this.SupplierAdd.Name = "SupplierAdd";
+            this.SupplierAdd.Size = new System.Drawing.Size(27, 24);
+            this.SupplierAdd.TabIndex = 18;
+            this.SupplierAdd.Text = "+";
+            this.SupplierAdd.UseVisualStyleBackColor = true;
+            this.SupplierAdd.Click += new System.EventHandler(this.SupplierAdd_Click);
+            // 
             // ProductAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(308, 350);
+            this.ClientSize = new System.Drawing.Size(320, 350);
+            this.Controls.Add(this.SupplierAdd);
+            this.Controls.Add(this.CategoryAdd);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.nmrUnitInStock);
             this.Controls.Add(this.button1);
@@ -260,5 +284,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.NumericUpDown nmrUnitInStock;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button CategoryAdd;
+        private System.Windows.Forms.Button SupplierAdd;
     }
 }

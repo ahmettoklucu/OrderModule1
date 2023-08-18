@@ -1,7 +1,6 @@
 ﻿using OrderModule.Bussiness.Abstract;
 using OrderModule.Bussiness.Concrete;
 using OrderModule.DataAccess.Concrete;
-using OrderModule.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,13 +13,13 @@ using System.Windows.Forms;
 
 namespace OrderModule.UI
 {
-    public partial class ProductAddForm : Form
+    public partial class ProductUpdateForm : Form
     {
-        public ProductAddForm()
+        public ProductUpdateForm()
         {
             InitializeComponent();
             _categoryService = new CategoryManager(new EfCategoryDal());
-            _supplierService=new SupplierManager(new EfSupplierDal());
+            _supplierService = new SupplierManager(new EfSupplierDal());
             _productService = new ProductManager(new EfProductDal());
         }
         private ICategoryService _categoryService;
@@ -38,28 +37,6 @@ namespace OrderModule.UI
             cbxSupplier.DisplayMember = "CompanyName";
             cbxSupplier.ValueMember = "SupplierID";
         }
-        private void ProductAdd_Load(object sender, EventArgs e)
-        {
-            LoadCategory();
-            LoadSupplier();
-
-        }
-
-        private void ProductAdded_Click(object sender, EventArgs e)
-        {
-            _productService.Add(new Product
-            {
-                CategoryID=cbxCategory.SelectedIndex,
-                SupplierID=cbxSupplier.SelectedIndex,
-                ProductName=tbxProductName.Text,
-                QuantityPerUnit=tbxQuantityPerUnit.Text,
-                UnitPrice=Convert.ToDecimal(nmrUnitPrice.Text)
-
-            });
-            MessageBox.Show("Ürün Kaydedildi");
-
-        }
-
         private void ProductList_Click(object sender, EventArgs e)
         {
             ProductListForm productListForm = new ProductListForm();
@@ -69,20 +46,25 @@ namespace OrderModule.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuForm menuForm= new MenuForm();
+            MenuForm menuForm = new MenuForm();
             menuForm.Show();
+        }
 
+        private void ProductUpdateForm_Load(object sender, EventArgs e)
+        {
+            LoadCategory();
+            LoadSupplier();
         }
 
         private void SupplierAdd_Click(object sender, EventArgs e)
         {
-            SupplierAddForm supplierAddForm= new SupplierAddForm();
+            SupplierAddForm supplierAddForm = new SupplierAddForm();
             supplierAddForm.Show();
         }
 
         private void CategoryAdd_Click(object sender, EventArgs e)
         {
-            CateforyAddForm cateforyAddForm= new CateforyAddForm(); 
+            CateforyAddForm cateforyAddForm = new CateforyAddForm();
             cateforyAddForm.Show();
         }
     }
