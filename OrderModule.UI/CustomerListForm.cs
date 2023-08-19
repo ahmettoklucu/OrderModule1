@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace OrderModule.UI
 {
-    public partial class CategoryListForm : Form
+    public partial class CustomerListForm : Form
     {
-        public CategoryListForm()
+        public CustomerListForm()
         {
             InitializeComponent();
         }
@@ -25,14 +25,14 @@ namespace OrderModule.UI
 
         private void ProductAdd_Click(object sender, EventArgs e)
         {
-            CateforyAddForm cateforyAddForm = new CateforyAddForm();
-            cateforyAddForm.Show();
+            CustomerAddForm customerAddForm = new CustomerAddForm();
+            customerAddForm.Show();
         }
 
         private void ProductUpdate_Click(object sender, EventArgs e)
         {
-            CategoryUpdateForm categoryUpdateForm = new CategoryUpdateForm();
-            categoryUpdateForm.Show();
+            CustomerUpdateForm customerUpdateForm = new CustomerUpdateForm();
+            customerUpdateForm.Show();
         }
     }
 }

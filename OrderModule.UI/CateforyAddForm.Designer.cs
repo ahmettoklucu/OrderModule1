@@ -87,6 +87,7 @@
             this.ProductList.TabIndex = 34;
             this.ProductList.Text = "Geri";
             this.ProductList.UseVisualStyleBackColor = true;
+            this.ProductList.Click += new System.EventHandler(this.ProductList_Click);
             // 
             // ProductAdded
             // 

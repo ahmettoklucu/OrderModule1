@@ -45,6 +45,7 @@
             this.button1.TabIndex = 42;
             this.button1.Text = "Menü";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ProductList
             // 
@@ -54,6 +55,7 @@
             this.ProductList.TabIndex = 41;
             this.ProductList.Text = "Geri";
             this.ProductList.UseVisualStyleBackColor = true;
+            this.ProductList.Click += new System.EventHandler(this.ProductList_Click);
             // 
             // ProductAdded
             // 

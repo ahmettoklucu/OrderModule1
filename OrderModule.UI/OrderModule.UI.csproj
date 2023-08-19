@@ -74,11 +74,65 @@
     <Compile Include="CategoryUpdateForm.Designer.cs">
       <DependentUpon>CategoryUpdateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerAddForm.Designer.cs">
+      <DependentUpon>CustomerAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerListForm.Designer.cs">
+      <DependentUpon>CustomerListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerUpdateForm.Designer.cs">
+      <DependentUpon>CustomerUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeAddForm.Designer.cs">
+      <DependentUpon>EmployeeAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeListForm.Designer.cs">
+      <DependentUpon>EmployeeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeUpdateForm.Designer.cs">
+      <DependentUpon>EmployeUpdateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderAddForm.Designer.cs">
+      <DependentUpon>OrderAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderListForm.Designer.cs">
+      <DependentUpon>OrderListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderUpdateForm.Designer.cs">
+      <DependentUpon>OrderUpdateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductAddForm.cs">
       <SubType>Form</SubType>
@@ -126,6 +180,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CategoryUpdateForm.resx">
       <DependentUpon>CategoryUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerAddForm.resx">
+      <DependentUpon>CustomerAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerListForm.resx">
+      <DependentUpon>CustomerListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerUpdateForm.resx">
+      <DependentUpon>CustomerUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeAddForm.resx">
+      <DependentUpon>EmployeeAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeListForm.resx">
+      <DependentUpon>EmployeeListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeUpdateForm.resx">
+      <DependentUpon>EmployeUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderAddForm.resx">
+      <DependentUpon>OrderAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderListForm.resx">
+      <DependentUpon>OrderListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderUpdateForm.resx">
+      <DependentUpon>OrderUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductAddForm.resx">
       <DependentUpon>ProductAddForm.cs</DependentUpon>

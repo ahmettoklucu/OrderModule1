@@ -1,6 +1,6 @@
 ﻿namespace OrderModule.UI
 {
-    partial class CategoryListForm
+    partial class EmployeeListForm
     {
         /// <summary>
         /// Required designer variable.
@@ -40,9 +40,9 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(267, 12);
+            this.btnDelete.Location = new System.Drawing.Point(258, 12);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(48, 23);
+            this.btnDelete.Size = new System.Drawing.Size(60, 23);
             this.btnDelete.TabIndex = 20;
             this.btnDelete.Text = "Sil";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -51,7 +51,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(63, 23);
+            this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 19;
             this.button1.Text = "MENÜ";
             this.button1.UseVisualStyleBackColor = true;
@@ -61,7 +61,7 @@
             // 
             this.ProductUpdate.Location = new System.Drawing.Point(159, 12);
             this.ProductUpdate.Name = "ProductUpdate";
-            this.ProductUpdate.Size = new System.Drawing.Size(81, 23);
+            this.ProductUpdate.Size = new System.Drawing.Size(93, 23);
             this.ProductUpdate.TabIndex = 18;
             this.ProductUpdate.Text = "Güncelle";
             this.ProductUpdate.UseVisualStyleBackColor = true;
@@ -71,7 +71,7 @@
             // 
             this.ProductAdd.Location = new System.Drawing.Point(93, 12);
             this.ProductAdd.Name = "ProductAdd";
-            this.ProductAdd.Size = new System.Drawing.Size(48, 23);
+            this.ProductAdd.Size = new System.Drawing.Size(60, 23);
             this.ProductAdd.TabIndex = 17;
             this.ProductAdd.Text = "EKLE";
             this.ProductAdd.UseVisualStyleBackColor = true;
@@ -79,9 +79,9 @@
             // 
             // tbxProductName
             // 
-            this.tbxProductName.Location = new System.Drawing.Point(624, 11);
+            this.tbxProductName.Location = new System.Drawing.Point(596, 12);
             this.tbxProductName.Name = "tbxProductName";
-            this.tbxProductName.Size = new System.Drawing.Size(117, 20);
+            this.tbxProductName.Size = new System.Drawing.Size(129, 20);
             this.tbxProductName.TabIndex = 16;
             // 
             // cbxCategory
@@ -89,7 +89,7 @@
             this.cbxCategory.FormattingEnabled = true;
             this.cbxCategory.Location = new System.Drawing.Point(785, 11);
             this.cbxCategory.Name = "cbxCategory";
-            this.cbxCategory.Size = new System.Drawing.Size(109, 21);
+            this.cbxCategory.Size = new System.Drawing.Size(121, 21);
             this.cbxCategory.TabIndex = 15;
             // 
             // dgwProduct
@@ -97,14 +97,14 @@
             this.dgwProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwProduct.Location = new System.Drawing.Point(12, 51);
             this.dgwProduct.Name = "dgwProduct";
-            this.dgwProduct.Size = new System.Drawing.Size(882, 387);
+            this.dgwProduct.Size = new System.Drawing.Size(894, 387);
             this.dgwProduct.TabIndex = 14;
             // 
-            // CategoryListForm
+            // EmployeeListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 450);
+            this.ClientSize = new System.Drawing.Size(919, 450);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ProductUpdate);
@@ -112,8 +112,8 @@
             this.Controls.Add(this.tbxProductName);
             this.Controls.Add(this.cbxCategory);
             this.Controls.Add(this.dgwProduct);
-            this.Name = "CategoryListForm";
-            this.Text = "CategoryListForm";
+            this.Name = "EmployeeListForm";
+            this.Text = "S";
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
