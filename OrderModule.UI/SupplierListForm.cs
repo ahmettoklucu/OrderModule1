@@ -1,4 +1,8 @@
-﻿using System;
+﻿using OrderModule.Bussiness.Abstract;
+using OrderModule.Bussiness.Concrete;
+using OrderModule.DataAccess.Concrete;
+using OrderModule.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,12 +19,35 @@ namespace OrderModule.UI
         public SupplierListForm()
         {
             InitializeComponent();
+            _supplierService=new SupplierManager(new EfSupplierDal());
         }
-
+        private ISupplierService _supplierService;
+        private int SuppplierId;
+        public void LoadSupplier()
+        {
+            dgwProduct.DataSource = _supplierService.GetAll();
+        }
         private void ProductUpdate_Click(object sender, EventArgs e)
         {
-            SupplierUpdateForm form = new SupplierUpdateForm();
-            form.Show();
+            try
+            {
+                if (SuppplierId != 0)
+                {
+                    SupplierUpdateForm form = new SupplierUpdateForm(SuppplierId);
+                    form.Show();
+
+                }
+                else
+                {
+                    MessageBox.Show("Güncellemek için bir veri seçiniz!!");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
+          
         }
 
         private void ProductAdd_Click(object sender, EventArgs e)
@@ -33,6 +60,33 @@ namespace OrderModule.UI
         {
             MenuForm menu = new MenuForm();
             menu.Show();
+        }
+
+        private void SupplierListForm_Load(object sender, EventArgs e)
+        {
+            LoadSupplier();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (SuppplierId != 0)
+                {
+                    var DeleteSupplier = _supplierService.Get(SuppplierId);
+                    _supplierService.Delete(DeleteSupplier);
+                    LoadSupplier();
+                }
+                else
+                {
+                    MessageBox.Show("Silmek için bir veri seçiniz!!");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
     }
 }

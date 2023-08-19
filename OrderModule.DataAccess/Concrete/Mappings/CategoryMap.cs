@@ -15,7 +15,7 @@ namespace DevFreamwork.Northwind.DataAccess.Concrete.EntityFreamwork.Mappings
             ToTable(@"Categories", "dbo");
             HasKey(x => x.CategoryID);
             Property(x=>x.CategoryName).HasColumnName("CategoryName");
-            Property(x=>x.Description).HasColumnName("Description");
+            Property(x=>x.CategoryDescription).HasColumnName("Description");
         }
     }
 }

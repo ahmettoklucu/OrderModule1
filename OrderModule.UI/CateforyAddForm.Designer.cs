@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbxContactName = new System.Windows.Forms.TextBox();
-            this.tbxCompanyName = new System.Windows.Forms.TextBox();
+            this.tbxCategoryDescription = new System.Windows.Forms.TextBox();
+            this.tbxCategoryName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -37,19 +37,19 @@
             this.ProductAdded = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // tbxContactName
+            // tbxCategoryDescription
             // 
-            this.tbxContactName.Location = new System.Drawing.Point(131, 49);
-            this.tbxContactName.Name = "tbxContactName";
-            this.tbxContactName.Size = new System.Drawing.Size(120, 20);
-            this.tbxContactName.TabIndex = 32;
+            this.tbxCategoryDescription.Location = new System.Drawing.Point(131, 49);
+            this.tbxCategoryDescription.Name = "tbxCategoryDescription";
+            this.tbxCategoryDescription.Size = new System.Drawing.Size(120, 20);
+            this.tbxCategoryDescription.TabIndex = 32;
             // 
-            // tbxCompanyName
+            // tbxCategoryName
             // 
-            this.tbxCompanyName.Location = new System.Drawing.Point(131, 12);
-            this.tbxCompanyName.Name = "tbxCompanyName";
-            this.tbxCompanyName.Size = new System.Drawing.Size(120, 20);
-            this.tbxCompanyName.TabIndex = 31;
+            this.tbxCategoryName.Location = new System.Drawing.Point(131, 12);
+            this.tbxCategoryName.Name = "tbxCategoryName";
+            this.tbxCategoryName.Size = new System.Drawing.Size(120, 20);
+            this.tbxCategoryName.TabIndex = 31;
             // 
             // label2
             // 
@@ -97,6 +97,7 @@
             this.ProductAdded.TabIndex = 33;
             this.ProductAdded.Text = "Ekle";
             this.ProductAdded.UseVisualStyleBackColor = true;
+            this.ProductAdded.Click += new System.EventHandler(this.ProductAdded_Click);
             // 
             // CateforyAddForm
             // 
@@ -106,8 +107,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ProductList);
             this.Controls.Add(this.ProductAdded);
-            this.Controls.Add(this.tbxContactName);
-            this.Controls.Add(this.tbxCompanyName);
+            this.Controls.Add(this.tbxCategoryDescription);
+            this.Controls.Add(this.tbxCategoryName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "CateforyAddForm";
@@ -119,8 +120,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox tbxContactName;
-        private System.Windows.Forms.TextBox tbxCompanyName;
+        private System.Windows.Forms.TextBox tbxCategoryDescription;
+        private System.Windows.Forms.TextBox tbxCategoryName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;

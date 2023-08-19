@@ -16,9 +16,35 @@ namespace OrderModule.Bussiness.Concrete
         {
             _categoryDal = categoryDal;
         }
+
+        public void Add(Category category)
+        {
+             _categoryDal.Add(category);
+        }
+
+        public void Delete(Category category)
+        {
+           _categoryDal.Delete(category);
+        }
+
+        public Category Get(int CategoryId)
+        {
+          return _categoryDal.Get(P=>P.CategoryID==CategoryId);
+        }
+
         public List<Category> GetAll()
         {
             return _categoryDal.GetAll();
+        }
+
+        public List<Category> GetCategoryByCategoryName(string categoryName)
+        {
+            return _categoryDal.GetAll(p => p.CategoryName.ToLower().Contains(categoryName.ToLower()));
+        }
+
+        public void Update(Category category)
+        {
+           _categoryDal.Update(category);
         }
     }
 }

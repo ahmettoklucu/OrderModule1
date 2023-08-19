@@ -12,7 +12,7 @@ namespace OrderModule.UI
 {
     public partial class SupplierUpdateForm : Form
     {
-        public SupplierUpdateForm()
+        public SupplierUpdateForm(int suppplierId)
         {
             InitializeComponent();
         }

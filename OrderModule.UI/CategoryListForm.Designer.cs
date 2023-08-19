@@ -46,6 +46,7 @@
             this.btnDelete.TabIndex = 20;
             this.btnDelete.Text = "Sil";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // button1
             // 
@@ -83,6 +84,7 @@
             this.tbxProductName.Name = "tbxProductName";
             this.tbxProductName.Size = new System.Drawing.Size(117, 20);
             this.tbxProductName.TabIndex = 16;
+            this.tbxProductName.TextChanged += new System.EventHandler(this.tbxProductName_TextChanged);
             // 
             // cbxCategory
             // 
@@ -99,6 +101,7 @@
             this.dgwProduct.Name = "dgwProduct";
             this.dgwProduct.Size = new System.Drawing.Size(882, 387);
             this.dgwProduct.TabIndex = 14;
+            this.dgwProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwProduct_CellClick);
             // 
             // CategoryListForm
             // 
@@ -114,6 +117,7 @@
             this.Controls.Add(this.dgwProduct);
             this.Name = "CategoryListForm";
             this.Text = "CategoryListForm";
+            this.Load += new System.EventHandler(this.CategoryListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

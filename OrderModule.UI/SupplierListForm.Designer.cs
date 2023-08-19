@@ -99,6 +99,7 @@
             this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "Sil";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // SupplierListForm
             // 
@@ -114,6 +115,7 @@
             this.Controls.Add(this.dgwProduct);
             this.Name = "SupplierListForm";
             this.Text = "SupplierListForm";
+            this.Load += new System.EventHandler(this.SupplierListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

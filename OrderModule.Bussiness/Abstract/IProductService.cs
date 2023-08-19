@@ -15,5 +15,6 @@ namespace OrderModule.Bussiness.Abstract
         List<Product> GetProductByProductName(string producName);
         void  Add(Product product);
         void Update(Product product);
+        void Delete(Product product);
     }
 }

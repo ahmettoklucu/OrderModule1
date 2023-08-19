@@ -47,18 +47,26 @@ namespace OrderModule.UI
 
         private void ProductAdded_Click(object sender, EventArgs e)
         {
-            _productService.Add(new Product
+            try
             {
-                CategoryID=cbxCategory.SelectedIndex,
-                SupplierID=cbxSupplier.SelectedIndex,
-                ProductName=tbxProductName.Text,
-                QuantityPerUnit=tbxQuantityPerUnit.Text,
-                UnitPrice=Convert.ToDecimal(nmrUnitPrice.Text)
+                _productService.Add(new Product
+                {
+                    CategoryID = cbxCategory.SelectedIndex,
+                    SupplierID = cbxSupplier.SelectedIndex,
+                    ProductName = tbxProductName.Text,
+                    QuantityPerUnit = tbxQuantityPerUnit.Text,
+                    UnitPrice = Convert.ToDecimal(nmrUnitPrice.Text)
 
-            });
-            MessageBox.Show("Ürün Kaydedildi");
-            ProductListForm productListForm = new ProductListForm();
-            productListForm.Show();
+                });
+                MessageBox.Show("Ürün Kaydedildi");
+                ProductListForm productListForm = new ProductListForm();
+                productListForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
 
         }
 

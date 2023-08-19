@@ -23,6 +23,11 @@ namespace OrderModule.Bussiness.Concrete
             _productDal.Add(product);
         }
 
+        public void Delete(Product product)
+        {
+           _productDal.Delete(product);
+        }
+
         public Product Get(int ProductId)
         {
             return _productDal.Get(p=>p.ProductID==ProductId);

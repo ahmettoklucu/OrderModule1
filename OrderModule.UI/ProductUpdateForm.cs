@@ -86,20 +86,28 @@ namespace OrderModule.UI
 
         private void ProductUpdated_Click(object sender, EventArgs e)
         {
-            _productService.Update(new Product
+            try
             {
-                ProductID = product,
-                ProductName=tbxProductName.Text,
-                CategoryID=Convert.ToInt32(cbxCategory.SelectedValue),
-                QuantityPerUnit=tbxQuantityPerUnit.Text,
-                UnitsInStock=Convert.ToInt16(nmrUnitInStock.Value),
-                UnitPrice=Convert.ToDecimal(nmrUnitInStock.Value),
-                SupplierID=Convert.ToInt32(cbxSupplier.SelectedValue),
+                _productService.Update(new Product
+                {
+                    ProductID = product,
+                    ProductName = tbxProductName.Text,
+                    CategoryID = Convert.ToInt32(cbxCategory.SelectedValue),
+                    QuantityPerUnit = tbxQuantityPerUnit.Text,
+                    UnitsInStock = Convert.ToInt16(nmrUnitInStock.Value),
+                    UnitPrice = Convert.ToDecimal(nmrUnitInStock.Value),
+                    SupplierID = Convert.ToInt32(cbxSupplier.SelectedValue),
 
-            });
-            MessageBox.Show("Ürün güncelleştirildi.");
-            ProductListForm productListForm = new ProductListForm();
-            productListForm.Show();
+                });
+                MessageBox.Show("Ürün güncelleştirildi.");
+                ProductListForm productListForm = new ProductListForm();
+                productListForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
     }
 }

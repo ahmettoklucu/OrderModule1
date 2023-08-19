@@ -23,7 +23,7 @@ namespace OrderModule.UI
 
 
         }
-        int product;
+        private int product;
         private IProductService _productService;
         private ICategoryService _categoryService;
         private void Form1_Load(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace OrderModule.UI
         {
             try
             {
-                if (cbxCategory.SelectedIndex != null)
+                if (cbxCategory.SelectedIndex != 0)
                 {
 
                     dgwProduct.DataSource = _productService.GetProductByCategory(cbxCategory.SelectedIndex);
@@ -60,7 +60,7 @@ namespace OrderModule.UI
             }
             catch(Exception ex)
             {
-                
+                MessageBox.Show(ex.Message); 
             }
             
         }
@@ -79,7 +79,7 @@ namespace OrderModule.UI
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -98,8 +98,15 @@ namespace OrderModule.UI
 
         private void ProductUpdate_Click(object sender, EventArgs e)
         {
-            ProductUpdateForm productUpdateForm = new ProductUpdateForm(product);
-            productUpdateForm.Show();
+            if (product != 0)
+            {
+                ProductUpdateForm productUpdateForm = new ProductUpdateForm(product);
+                productUpdateForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Güncellemek için bir veri seçiniz!!");
+            }
 
             
         }
@@ -107,6 +114,21 @@ namespace OrderModule.UI
         private void dgwProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             product =Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value.ToString());
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if(product!=0)
+            {
+                var DeleteProduct = _productService.Get(product);
+                _productService.Delete(DeleteProduct);
+                LoadProduct();
+            }
+            else
+            {
+                MessageBox.Show("Silmek için bir veri seçiniz!!");
+            }
+           
         }
     }
 }
