@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace OrderModule.UI
 {
-    public partial class CateforyAddForm : Form
+    public partial class CategoryUpdateForm : Form
     {
-        public CateforyAddForm()
+        public CategoryUpdateForm()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MenuForm menuForm = new MenuForm();
-            menuForm.Show();
         }
     }
 }

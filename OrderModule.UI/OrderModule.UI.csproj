@@ -62,6 +62,18 @@
     <Compile Include="CateforyAddForm.Designer.cs">
       <DependentUpon>CateforyAddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CategoryListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategoryListForm.Designer.cs">
+      <DependentUpon>CategoryListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategoryUpdateForm.Designer.cs">
+      <DependentUpon>CategoryUpdateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +118,15 @@
     <Compile Include="SupplierUpdateForm.Designer.cs">
       <DependentUpon>SupplierUpdateForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CateforyAddForm.resx">
+      <DependentUpon>CateforyAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CategoryListForm.resx">
+      <DependentUpon>CategoryListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CategoryUpdateForm.resx">
+      <DependentUpon>CategoryUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductAddForm.resx">
       <DependentUpon>ProductAddForm.cs</DependentUpon>
     </EmbeddedResource>
