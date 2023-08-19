@@ -1,4 +1,7 @@
-﻿using System;
+﻿using OrderModule.Bussiness.Abstract;
+using OrderModule.Bussiness.Concrete;
+using OrderModule.DataAccess.Concrete;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +18,9 @@ namespace OrderModule.UI
         public SupplierAddForm()
         {
             InitializeComponent();
+            _supplierService =new SupplierManager(new EfSupplierDal());
         }
-
+        private ISupplierService _supplierService;
         private void button1_Click(object sender, EventArgs e)
         {
             MenuForm menuForm = new MenuForm();
@@ -27,6 +31,10 @@ namespace OrderModule.UI
         {
             SupplierListForm form = new SupplierListForm();
             form.Show();
+        }
+
+        private void ProductAdded_Click(object sender, EventArgs e)
+        {
         }
     }
 }

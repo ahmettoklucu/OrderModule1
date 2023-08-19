@@ -23,6 +23,7 @@ namespace OrderModule.UI
 
 
         }
+        int product;
         private IProductService _productService;
         private ICategoryService _categoryService;
         private void Form1_Load(object sender, EventArgs e)
@@ -93,6 +94,19 @@ namespace OrderModule.UI
         {
             MenuForm menuForm = new MenuForm();
             menuForm.Show();
+        }
+
+        private void ProductUpdate_Click(object sender, EventArgs e)
+        {
+            ProductUpdateForm productUpdateForm = new ProductUpdateForm(product);
+            productUpdateForm.Show();
+
+            
+        }
+
+        private void dgwProduct_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            product =Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value.ToString());
         }
     }
 }

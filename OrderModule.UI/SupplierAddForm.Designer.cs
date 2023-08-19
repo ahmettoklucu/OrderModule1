@@ -81,6 +81,7 @@
             this.ProductAdded.TabIndex = 15;
             this.ProductAdded.Text = "Ekle";
             this.ProductAdded.UseVisualStyleBackColor = true;
+            this.ProductAdded.Click += new System.EventHandler(this.ProductAdded_Click);
             // 
             // label7
             // 

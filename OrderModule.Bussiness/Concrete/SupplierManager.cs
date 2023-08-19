@@ -17,6 +17,12 @@ namespace OrderModule.Bussiness.Concrete
         {
             _supplierDal = supplierDal;
         }
+
+        public void Add(Supplier supplier)
+        {
+           _supplierDal.Add(supplier);
+        }
+
         public List<Supplier> GetAll()
         {
             return _supplierDal.GetAll();

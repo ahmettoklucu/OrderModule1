@@ -199,6 +199,9 @@
     <EmbeddedResource Include="EmployeUpdateForm.resx">
       <DependentUpon>EmployeUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm.resx">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OrderAddForm.resx">
       <DependentUpon>OrderAddForm.cs</DependentUpon>
     </EmbeddedResource>

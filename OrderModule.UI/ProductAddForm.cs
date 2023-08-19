@@ -57,6 +57,8 @@ namespace OrderModule.UI
 
             });
             MessageBox.Show("Ürün Kaydedildi");
+            ProductListForm productListForm = new ProductListForm();
+            productListForm.Show();
 
         }
 

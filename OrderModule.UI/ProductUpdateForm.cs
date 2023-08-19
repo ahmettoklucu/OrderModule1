@@ -1,6 +1,7 @@
 ﻿using OrderModule.Bussiness.Abstract;
 using OrderModule.Bussiness.Concrete;
 using OrderModule.DataAccess.Concrete;
+using OrderModule.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,9 +16,12 @@ namespace OrderModule.UI
 {
     public partial class ProductUpdateForm : Form
     {
-        public ProductUpdateForm()
+        private int product;
+        
+        public ProductUpdateForm(int product)
         {
             InitializeComponent();
+            this.product = product;
             _categoryService = new CategoryManager(new EfCategoryDal());
             _supplierService = new SupplierManager(new EfSupplierDal());
             _productService = new ProductManager(new EfProductDal());
@@ -37,6 +41,17 @@ namespace OrderModule.UI
             cbxSupplier.DisplayMember = "CompanyName";
             cbxSupplier.ValueMember = "SupplierID";
         }
+        public void LoadProduct()
+        {
+            var UpdatedProduct= _productService.Get(product);
+            tbxProductName.Text=UpdatedProduct.ProductName.ToString();
+            cbxCategory.SelectedValue = UpdatedProduct.CategoryID;
+            cbxSupplier.SelectedValue = UpdatedProduct.SupplierID;
+            tbxQuantityPerUnit.Text=UpdatedProduct.QuantityPerUnit.ToString();
+            nmrUnitInStock.Value = UpdatedProduct.UnitPrice;
+            nmrUnitInStock.Value = UpdatedProduct.UnitsInStock;
+
+        }
         private void ProductList_Click(object sender, EventArgs e)
         {
             ProductListForm productListForm = new ProductListForm();
@@ -54,6 +69,7 @@ namespace OrderModule.UI
         {
             LoadCategory();
             LoadSupplier();
+            LoadProduct();
         }
 
         private void SupplierAdd_Click(object sender, EventArgs e)
@@ -66,6 +82,24 @@ namespace OrderModule.UI
         {
             CateforyAddForm cateforyAddForm = new CateforyAddForm();
             cateforyAddForm.Show();
+        }
+
+        private void ProductUpdated_Click(object sender, EventArgs e)
+        {
+            _productService.Update(new Product
+            {
+                ProductID = product,
+                ProductName=tbxProductName.Text,
+                CategoryID=Convert.ToInt32(cbxCategory.SelectedValue),
+                QuantityPerUnit=tbxQuantityPerUnit.Text,
+                UnitsInStock=Convert.ToInt16(nmrUnitInStock.Value),
+                UnitPrice=Convert.ToDecimal(nmrUnitInStock.Value),
+                SupplierID=Convert.ToInt32(cbxSupplier.SelectedValue),
+
+            });
+            MessageBox.Show("Ürün güncelleştirildi.");
+            ProductListForm productListForm = new ProductListForm();
+            productListForm.Show();
         }
     }
 }

@@ -45,6 +45,7 @@
             this.dgwProduct.Name = "dgwProduct";
             this.dgwProduct.Size = new System.Drawing.Size(894, 387);
             this.dgwProduct.TabIndex = 0;
+            this.dgwProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwProduct_CellClick);
             // 
             // cbxCategory
             // 
@@ -81,6 +82,7 @@
             this.ProductUpdate.TabIndex = 4;
             this.ProductUpdate.Text = "Güncelle";
             this.ProductUpdate.UseVisualStyleBackColor = true;
+            this.ProductUpdate.Click += new System.EventHandler(this.ProductUpdate_Click);
             // 
             // button1
             // 

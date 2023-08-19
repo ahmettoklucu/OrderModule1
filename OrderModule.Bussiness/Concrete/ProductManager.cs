@@ -13,17 +13,19 @@ namespace OrderModule.Bussiness.Concrete
     public class ProductManager:IProductService
     {
         private IProductDal _productDal;
-        private IOrderDetailDal _orderDetailDal;
 
         public ProductManager(IProductDal productDal) 
         { 
             _productDal = productDal;
         }
-
         public void Add(Product product)
-        {
-            product.UnitsOnOrder=Convert.ToInt16(_orderDetailDal.GetAll(p=>p.ProductID==product.ProductID).Sum(p=>p.Quantity));    
+        {  
             _productDal.Add(product);
+        }
+
+        public Product Get(int ProductId)
+        {
+            return _productDal.Get(p=>p.ProductID==ProductId);
         }
 
         public List<Product> GetAll()
@@ -38,6 +40,11 @@ namespace OrderModule.Bussiness.Concrete
         public List<Product> GetProductByProductName(string producName) 
         {
             return _productDal.GetAll(p=>p.ProductName.ToLower().Contains(producName.ToLower()));
+        }
+
+        public void Update(Product product)
+        {
+            _productDal.Update(product); ;
         }
     }
 }

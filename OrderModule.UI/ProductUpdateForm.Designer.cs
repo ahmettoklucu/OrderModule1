@@ -120,6 +120,7 @@
             this.ProductUpdated.TabIndex = 31;
             this.ProductUpdated.Text = "Güncelle";
             this.ProductUpdated.UseVisualStyleBackColor = true;
+            this.ProductUpdated.Click += new System.EventHandler(this.ProductUpdated_Click);
             // 
             // cbxDicontinued
             // 

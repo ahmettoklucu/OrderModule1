@@ -10,5 +10,6 @@ namespace OrderModule.Bussiness.Abstract
     public interface ISupplierService
     {
         List<Supplier> GetAll();
+        void Add(Supplier supplier);
     }
 }
