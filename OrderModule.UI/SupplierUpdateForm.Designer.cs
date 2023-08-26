@@ -240,6 +240,7 @@
             this.ProductAdded.TabIndex = 38;
             this.ProductAdded.Text = "Ekle";
             this.ProductAdded.UseVisualStyleBackColor = true;
+            this.ProductAdded.Click += new System.EventHandler(this.ProductAdded_Click);
             // 
             // SupplierUpdateForm
             // 

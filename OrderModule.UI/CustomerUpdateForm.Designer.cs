@@ -241,6 +241,7 @@
             this.ProductAdded.TabIndex = 61;
             this.ProductAdded.Text = "Ekle";
             this.ProductAdded.UseVisualStyleBackColor = true;
+            this.ProductAdded.Click += new System.EventHandler(this.ProductAdded_Click);
             // 
             // CustomerUpdateForm
             // 
@@ -272,6 +273,7 @@
             this.Controls.Add(this.ProductAdded);
             this.Name = "CustomerUpdateForm";
             this.Text = "CustomerUpdateForm";
+            this.Load += new System.EventHandler(this.CustomerUpdateForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

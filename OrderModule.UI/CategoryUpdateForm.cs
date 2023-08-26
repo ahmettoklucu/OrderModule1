@@ -17,9 +17,10 @@ namespace OrderModule.UI
     public partial class CategoryUpdateForm : Form
     {
         private int _categoryId;
-        public CategoryUpdateForm(int _categoryId)
+        public CategoryUpdateForm(int categoryId)
         {
             InitializeComponent();
+            _categoryId = categoryId;
             _categoryService=new CategoryManager(new EfCategoryDal());
         }
         public void LoadCategory()
@@ -54,8 +55,11 @@ namespace OrderModule.UI
                 {
                     CategoryName = tbxCategoryName.Text,
                     CategoryDescription = tbxDescription.Text,
+                   
                 });
-
+                MessageBox.Show("Kategori Güncellendi.");
+                CategoryListForm categoryListForm = new CategoryListForm();
+                categoryListForm.Show();
             }
             catch (Exception ex)
             {

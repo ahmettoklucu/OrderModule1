@@ -23,7 +23,7 @@ namespace OrderModule.UI
 
 
         }
-        private int product;
+        private int _product;
         private IProductService _productService;
         private ICategoryService _categoryService;
         private void Form1_Load(object sender, EventArgs e)
@@ -98,9 +98,9 @@ namespace OrderModule.UI
 
         private void ProductUpdate_Click(object sender, EventArgs e)
         {
-            if (product != 0)
+            if (_product != 0)
             {
-                ProductUpdateForm productUpdateForm = new ProductUpdateForm(product);
+                ProductUpdateForm productUpdateForm = new ProductUpdateForm(_product);
                 productUpdateForm.Show();
             }
             else
@@ -113,14 +113,14 @@ namespace OrderModule.UI
 
         private void dgwProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            product =Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value.ToString());
+            _product =Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value.ToString());
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if(product!=0)
+            if(_product!=0)
             {
-                var DeleteProduct = _productService.Get(product);
+                var DeleteProduct = _productService.Get(_product);
                 _productService.Delete(DeleteProduct);
                 LoadProduct();
             }

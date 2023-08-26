@@ -1,4 +1,8 @@
-﻿using System;
+﻿using OrderModule.Bussiness.Abstract;
+using OrderModule.Bussiness.Concrete;
+using OrderModule.DataAccess.Concrete;
+using OrderModule.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +19,9 @@ namespace OrderModule.UI
         public CustomerAddForm()
         {
             InitializeComponent();
+            _customerService=new CustomerManager(new EFCustomerDal());
         }
-
+        private ICustomerService _customerService;
         private void button1_Click(object sender, EventArgs e)
         {
             MenuForm menuForm = new MenuForm();
@@ -25,13 +30,35 @@ namespace OrderModule.UI
 
         private void ProductList_Click(object sender, EventArgs e)
         {
-            CustomerUpdateForm customerUpdateForm = new CustomerUpdateForm();
-            customerUpdateForm.Show();
+            CustomerListForm customerListForm = new CustomerListForm();
+            customerListForm.Show();
         }
 
         private void ProductAdded_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                _customerService.Add(new Customer
+                {
+                    ContactName=tbxContactName.Text,
+                    CompanyName=tbxCompanyName.Text,
+                    ContactTitle=tbxContactTitle.Text,
+                    Address=tbxAddress.Text,
+                    City=tbxCity.Text,
+                    Region=tbxRegion.Text,
+                    PostalCode=tbxPostalCode.Text,
+                    Country=tbxCity.Text,
+                    Phone=tbxPhone.Text,
+                    Fax=tbxFax.Text,
+                });
+                MessageBox.Show("Müşteri eklendi.");
+                CustomerListForm customerListForm = new CustomerListForm();
+                customerListForm.Show();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

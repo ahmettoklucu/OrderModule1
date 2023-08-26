@@ -16,12 +16,12 @@ namespace OrderModule.UI
 {
     public partial class ProductUpdateForm : Form
     {
-        private int product;
+        private int _product;
         
         public ProductUpdateForm(int product)
         {
             InitializeComponent();
-            this.product = product;
+            _product = product;
             _categoryService = new CategoryManager(new EfCategoryDal());
             _supplierService = new SupplierManager(new EfSupplierDal());
             _productService = new ProductManager(new EfProductDal());
@@ -43,7 +43,7 @@ namespace OrderModule.UI
         }
         public void LoadProduct()
         {
-            var UpdatedProduct= _productService.Get(product);
+            var UpdatedProduct= _productService.Get(_product);
             tbxProductName.Text=UpdatedProduct.ProductName.ToString();
             cbxCategory.SelectedValue = UpdatedProduct.CategoryID;
             cbxSupplier.SelectedValue = UpdatedProduct.SupplierID;
@@ -90,7 +90,7 @@ namespace OrderModule.UI
             {
                 _productService.Update(new Product
                 {
-                    ProductID = product,
+                    ProductID = _product,
                     ProductName = tbxProductName.Text,
                     CategoryID = Convert.ToInt32(cbxCategory.SelectedValue),
                     QuantityPerUnit = tbxQuantityPerUnit.Text,

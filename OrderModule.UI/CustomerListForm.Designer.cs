@@ -33,7 +33,6 @@
             this.ProductUpdate = new System.Windows.Forms.Button();
             this.ProductAdd = new System.Windows.Forms.Button();
             this.tbxProductName = new System.Windows.Forms.TextBox();
-            this.cbxCategory = new System.Windows.Forms.ComboBox();
             this.dgwProduct = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).BeginInit();
             this.SuspendLayout();
@@ -46,6 +45,7 @@
             this.btnDelete.TabIndex = 27;
             this.btnDelete.Text = "Sil";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // button1
             // 
@@ -79,18 +79,10 @@
             // 
             // tbxProductName
             // 
-            this.tbxProductName.Location = new System.Drawing.Point(636, 11);
+            this.tbxProductName.Location = new System.Drawing.Point(789, 12);
             this.tbxProductName.Name = "tbxProductName";
             this.tbxProductName.Size = new System.Drawing.Size(117, 20);
             this.tbxProductName.TabIndex = 23;
-            // 
-            // cbxCategory
-            // 
-            this.cbxCategory.FormattingEnabled = true;
-            this.cbxCategory.Location = new System.Drawing.Point(797, 11);
-            this.cbxCategory.Name = "cbxCategory";
-            this.cbxCategory.Size = new System.Drawing.Size(109, 21);
-            this.cbxCategory.TabIndex = 22;
             // 
             // dgwProduct
             // 
@@ -99,6 +91,7 @@
             this.dgwProduct.Name = "dgwProduct";
             this.dgwProduct.Size = new System.Drawing.Size(882, 387);
             this.dgwProduct.TabIndex = 21;
+            this.dgwProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwProduct_CellClick);
             // 
             // CustomerListForm
             // 
@@ -110,10 +103,10 @@
             this.Controls.Add(this.ProductUpdate);
             this.Controls.Add(this.ProductAdd);
             this.Controls.Add(this.tbxProductName);
-            this.Controls.Add(this.cbxCategory);
             this.Controls.Add(this.dgwProduct);
             this.Name = "CustomerListForm";
             this.Text = "CustomerListForm";
+            this.Load += new System.EventHandler(this.CustomerListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -127,7 +120,6 @@
         private System.Windows.Forms.Button ProductUpdate;
         private System.Windows.Forms.Button ProductAdd;
         private System.Windows.Forms.TextBox tbxProductName;
-        private System.Windows.Forms.ComboBox cbxCategory;
         private System.Windows.Forms.DataGridView dgwProduct;
     }
 }

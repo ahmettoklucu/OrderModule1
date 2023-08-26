@@ -80,6 +80,7 @@ namespace OrderModule.UI
                 {
                     var DeleteCategory = _categoryService.Get(_categoryId);
                     _categoryService.Delete(DeleteCategory);
+                    MessageBox.Show("Kategori Silindi.");
                     LoadCategory();
 
                 }

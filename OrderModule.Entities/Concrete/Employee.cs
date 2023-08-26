@@ -27,6 +27,5 @@ namespace OrderModule.Entities.Concrete
         public int ReportsTo { get; set; }
         public int PhotoPath { get; set;}
         public string Photo { get; set; }
-        public List<Employee> Employees { get; set; }
     }
 }

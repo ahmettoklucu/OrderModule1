@@ -46,6 +46,7 @@
             this.btnDelete.TabIndex = 20;
             this.btnDelete.Text = "Sil";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // button1
             // 
@@ -99,6 +100,7 @@
             this.dgwProduct.Name = "dgwProduct";
             this.dgwProduct.Size = new System.Drawing.Size(894, 387);
             this.dgwProduct.TabIndex = 14;
+            this.dgwProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwProduct_CellClick);
             // 
             // EmployeeListForm
             // 
@@ -114,6 +116,7 @@
             this.Controls.Add(this.dgwProduct);
             this.Name = "EmployeeListForm";
             this.Text = "S";
+            this.Load += new System.EventHandler(this.EmployeeListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

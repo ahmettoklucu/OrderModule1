@@ -46,7 +46,7 @@ namespace OrderModule.UI
                     CategoryDescription = tbxCategoryDescription.Text,
 
                 });
-                MessageBox.Show("Ürün Kaydedildi");
+                MessageBox.Show("Kategori Kaydedildi");
                 ProductListForm productListForm = new ProductListForm();
                 productListForm.Show();
             }
