@@ -1,4 +1,6 @@
 ﻿using OrderModule.Bussiness.Abstract;
+using OrderModule.Bussiness.Utilities;
+using OrderModule.Bussiness.ValidationRules.FluentValidation;
 using OrderModule.DataAccess.Abstract;
 using OrderModule.Entities.Concrete;
 using System;
@@ -18,6 +20,7 @@ namespace OrderModule.Bussiness.Concrete
         }
         public void Add(Employee employee)
         {
+            ValidationTool.Validate(new EmployeeValidator(),employee);
             _employeeDal.Add(employee);
         }
 
@@ -43,7 +46,8 @@ namespace OrderModule.Bussiness.Concrete
 
         public void Update(Employee employee)
         {
-           _employeeDal.Update(employee);
+            ValidationTool.Validate(new EmployeeValidator(), employee);
+            _employeeDal.Update(employee);
         }
     }
 }

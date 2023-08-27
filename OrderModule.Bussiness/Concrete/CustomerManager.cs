@@ -1,4 +1,6 @@
 ﻿using OrderModule.Bussiness.Abstract;
+using OrderModule.Bussiness.Utilities;
+using OrderModule.Bussiness.ValidationRules.FluentValidation;
 using OrderModule.DataAccess.Abstract;
 using OrderModule.Entities.Concrete;
 using System;
@@ -19,11 +21,13 @@ namespace OrderModule.Bussiness.Concrete
 
         public void Add(Customer customer)
         {
+            ValidationTool.Validate(new CustomerValidator(), customer);
             _customerDal.Add(customer);
         }
 
         public void Delete(Customer customer)
         {
+
             _customerDal.Delete(customer);
         }
 
@@ -44,6 +48,7 @@ namespace OrderModule.Bussiness.Concrete
 
         public void Update(Customer customer)
         {
+            ValidationTool.Validate(new CustomerValidator(), customer);
             _customerDal.Update(customer);
         }
     }

@@ -18,12 +18,10 @@ namespace OrderModule.Bussiness.ValidationRules.FluentValidation
             RuleFor(p=>p.QuantityPerUnit).NotEmpty().WithMessage("Birim başına miktar boş olamaz.");
             RuleFor(p=> p.UnitPrice).NotEmpty().WithMessage("Fiyat boş geçilemez.");
             RuleFor(p=>p.UnitsInStock).NotEmpty().WithMessage("Miktar boş geçilemez.");
-            RuleFor(p => p.ProductName).Length(40).WithMessage("Ürün ismi 40 Karaterden büyük olamaz.");
-
-            RuleFor(p => p.UnitsInStock).GreaterThan(Convert.ToInt16(0)).WithMessage("Stok miktari 0'dan küçük olamaz.");
-            RuleFor(p=>p.UnitPrice).GreaterThan(Convert.ToDecimal(0));
-
-
+            RuleFor(p => p.ProductName).MaximumLength(40).WithMessage("Ürün ismi 40 Karaterden fazla olamaz.");
+            RuleFor(p => p.QuantityPerUnit).MaximumLength(20).WithMessage("Birim Başına Miktar 20 fazla olamaz.");
+            RuleFor(p => p.UnitsInStock).GreaterThanOrEqualTo(Convert.ToInt16(0)).WithMessage("Stok miktari 0'dan küçük olamaz.");
+            RuleFor(p=>p.UnitPrice).GreaterThanOrEqualTo(Convert.ToDecimal(0)).WithMessage("Stok miktari 0'dan küçük olamaz.");
 
         }
     }

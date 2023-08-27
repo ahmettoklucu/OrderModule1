@@ -1,4 +1,6 @@
 ﻿using OrderModule.Bussiness.Abstract;
+using OrderModule.Bussiness.Utilities;
+using OrderModule.Bussiness.ValidationRules.FluentValidation;
 using OrderModule.DataAccess.Abstract;
 using OrderModule.Entities.Concrete;
 using System;
@@ -19,7 +21,8 @@ namespace OrderModule.Bussiness.Concrete
 
         public void Add(Category category)
         {
-             _categoryDal.Add(category);
+            ValidationTool.Validate(new CategoryValidator(), category);
+            _categoryDal.Add(category);
         }
 
         public void Delete(Category category)
@@ -44,7 +47,8 @@ namespace OrderModule.Bussiness.Concrete
 
         public void Update(Category category)
         {
-           _categoryDal.Update(category);
+            ValidationTool.Validate(new CategoryValidator(), category);
+            _categoryDal.Update(category);
         }
     }
 }

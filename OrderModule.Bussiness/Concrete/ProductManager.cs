@@ -1,4 +1,6 @@
 ﻿using OrderModule.Bussiness.Abstract;
+using OrderModule.Bussiness.Utilities;
+using OrderModule.Bussiness.ValidationRules.FluentValidation;
 using OrderModule.DataAccess.Abstract;
 using OrderModule.DataAccess.Concrete;
 using OrderModule.Entities.Concrete;
@@ -19,7 +21,8 @@ namespace OrderModule.Bussiness.Concrete
             _productDal = productDal;
         }
         public void Add(Product product)
-        {  
+        {
+            ValidationTool.Validate(new ProductValidator(), product);
             _productDal.Add(product);
         }
 
@@ -54,6 +57,7 @@ namespace OrderModule.Bussiness.Concrete
 
         public void Update(Product product)
         {
+            ValidationTool.Validate(new ProductValidator(), product);
             _productDal.Update(product); ;
         }
     }
