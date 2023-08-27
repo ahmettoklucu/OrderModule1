@@ -1,6 +1,7 @@
 ﻿using OrderModule.Bussiness.Abstract;
 using OrderModule.Bussiness.Concrete;
 using OrderModule.DataAccess.Concrete;
+using OrderModule.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,6 +36,25 @@ namespace OrderModule.UI
 
         private void ProductAdded_Click(object sender, EventArgs e)
         {
+            try
+            {
+                _supplierService.Add(new Supplier
+                {
+                    CompanyName = tbxCompanyName.Text,
+                    ContactName = tbxContactName.Text,
+                    ContactTitle = tbxContactTitle.Text,
+                    Country = tbxCountry.Text,
+                    Fax = tbxFax.Text,
+                    Phone = tbxPhone.Text,
+                    PostalCode = tbxPostalCode.Text,
+                    Region = tbxRegion.Text,
+
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

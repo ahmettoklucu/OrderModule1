@@ -38,8 +38,6 @@
             this.tbxQuantityPerUnit = new System.Windows.Forms.TextBox();
             this.nmrUnitPrice = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbxDicontinued = new System.Windows.Forms.ComboBox();
             this.ProductAdded = new System.Windows.Forms.Button();
             this.ProductList = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -143,23 +141,6 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Fiyat";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 262);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(28, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Aktif";
-            // 
-            // cbxDicontinued
-            // 
-            this.cbxDicontinued.FormattingEnabled = true;
-            this.cbxDicontinued.Location = new System.Drawing.Point(128, 254);
-            this.cbxDicontinued.Name = "cbxDicontinued";
-            this.cbxDicontinued.Size = new System.Drawing.Size(179, 21);
-            this.cbxDicontinued.TabIndex = 11;
-            // 
             // ProductAdded
             // 
             this.ProductAdded.Location = new System.Drawing.Point(232, 290);
@@ -243,8 +224,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ProductList);
             this.Controls.Add(this.ProductAdded);
-            this.Controls.Add(this.cbxDicontinued);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.nmrUnitPrice);
             this.Controls.Add(this.tbxQuantityPerUnit);
@@ -277,8 +256,6 @@
         private System.Windows.Forms.TextBox tbxQuantityPerUnit;
         private System.Windows.Forms.NumericUpDown nmrUnitPrice;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbxDicontinued;
         private System.Windows.Forms.Button ProductAdded;
         private System.Windows.Forms.Button ProductList;
         private System.Windows.Forms.Button button1;

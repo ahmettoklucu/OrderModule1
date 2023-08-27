@@ -47,6 +47,11 @@ namespace OrderModule.Bussiness.Concrete
             return _productDal.GetAll(p=>p.ProductName.ToLower().Contains(producName.ToLower()));
         }
 
+        public List<Product> GetProductBySupplier(int SupplierId)
+        {
+            return _productDal.GetAll(p => p.SupplierID == SupplierId);
+        }
+
         public void Update(Product product)
         {
             _productDal.Update(product); ;

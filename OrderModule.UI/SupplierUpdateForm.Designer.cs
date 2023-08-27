@@ -272,6 +272,7 @@
             this.Controls.Add(this.ProductAdded);
             this.Name = "SupplierUpdateForm";
             this.Text = "SupplierUpdateForm";
+            this.Load += new System.EventHandler(this.SupplierUpdateForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

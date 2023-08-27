@@ -12,6 +12,7 @@ namespace OrderModule.Bussiness.Abstract
         Product Get(int ProductId);
         List<Product> GetAll();
         List<Product> GetProductByCategory(int CategoryId);
+        List<Product> GetProductBySupplier(int SupplierId);
         List<Product> GetProductByProductName(string producName);
         void  Add(Product product);
         void Update(Product product);

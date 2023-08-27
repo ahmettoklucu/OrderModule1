@@ -39,7 +39,6 @@ namespace OrderModule.DataAccess.Concrete
             modelBuilder.Configurations.Add(new ShipperMap());
             modelBuilder.Configurations.Add(new SupplierMap());
             modelBuilder.Configurations.Add(new TerritoryMap());
-
         }
     }
 }

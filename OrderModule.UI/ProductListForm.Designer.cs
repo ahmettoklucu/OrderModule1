@@ -35,6 +35,7 @@
             this.ProductUpdate = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.cbxSupplier = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +59,7 @@
             // 
             // tbxProductName
             // 
-            this.tbxProductName.Location = new System.Drawing.Point(602, 12);
+            this.tbxProductName.Location = new System.Drawing.Point(508, 12);
             this.tbxProductName.Name = "tbxProductName";
             this.tbxProductName.Size = new System.Drawing.Size(129, 20);
             this.tbxProductName.TabIndex = 2;
@@ -104,11 +105,21 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // cbxSupplier
+            // 
+            this.cbxSupplier.FormattingEnabled = true;
+            this.cbxSupplier.Location = new System.Drawing.Point(653, 12);
+            this.cbxSupplier.Name = "cbxSupplier";
+            this.cbxSupplier.Size = new System.Drawing.Size(121, 21);
+            this.cbxSupplier.TabIndex = 14;
+            this.cbxSupplier.SelectedIndexChanged += new System.EventHandler(this.cbxSupplier_SelectedIndexChanged);
+            // 
             // ProductListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(931, 449);
+            this.Controls.Add(this.cbxSupplier);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ProductUpdate);
@@ -134,6 +145,7 @@
         private System.Windows.Forms.Button ProductUpdate;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.ComboBox cbxSupplier;
     }
 }
 

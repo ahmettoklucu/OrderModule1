@@ -20,15 +20,18 @@ namespace OrderModule.UI
             InitializeComponent();
             _productService = new ProductManager(new EfProductDal());
             _categoryService=new CategoryManager(new EfCategoryDal());
+            _supplierService=new SupplierManager(new EfSupplierDal());
 
 
         }
         private int _product;
         private IProductService _productService;
         private ICategoryService _categoryService;
+        private ISupplierService _supplierService;
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadCategory();
+            LoadSupplier();
             LoadProduct();
             
             
@@ -37,11 +40,17 @@ namespace OrderModule.UI
         {
             dgwProduct.DataSource = _productService.GetAll();
         }
-        public void LoadCategory()
+        private void LoadCategory()
         {
             cbxCategory.DataSource = _categoryService.GetAll();
             cbxCategory.DisplayMember = "CategoryName";
             cbxCategory.ValueMember = "CategoryId";
+        }
+        private void LoadSupplier()
+        {
+            cbxSupplier.DataSource = _supplierService.GetAll();
+            cbxSupplier.DisplayMember = "CompanyName";
+            cbxSupplier.ValueMember = "SupplierID";
         }
         private void cbxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -129,6 +138,27 @@ namespace OrderModule.UI
                 MessageBox.Show("Silmek için bir veri seçiniz!!");
             }
            
+        }
+
+        private void cbxSupplier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbxSupplier.SelectedIndex != 0)
+                {
+                    dgwProduct.DataSource = _productService.GetProductBySupplier(cbxSupplier.SelectedIndex);
+                }
+                else
+                {
+                    LoadProduct();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }
