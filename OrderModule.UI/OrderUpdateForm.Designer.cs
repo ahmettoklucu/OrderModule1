@@ -32,7 +32,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxProduct = new System.Windows.Forms.ComboBox();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -57,9 +57,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.ProductList = new System.Windows.Forms.Button();
             this.ProductAdded = new System.Windows.Forms.Button();
-            this.cbxCategory = new System.Windows.Forms.ComboBox();
+            this.cbxEmployee = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbxSupplier = new System.Windows.Forms.ComboBox();
+            this.cbxCustomer = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -103,13 +103,13 @@
             this.label11.TabIndex = 142;
             this.label11.Text = "Ürün";
             // 
-            // comboBox1
+            // cbxProduct
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(668, 183);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(120, 21);
-            this.comboBox1.TabIndex = 141;
+            this.cbxProduct.FormattingEnabled = true;
+            this.cbxProduct.Location = new System.Drawing.Point(668, 183);
+            this.cbxProduct.Name = "cbxProduct";
+            this.cbxProduct.Size = new System.Drawing.Size(120, 21);
+            this.cbxProduct.TabIndex = 141;
             // 
             // numericUpDown2
             // 
@@ -323,13 +323,13 @@
             this.ProductAdded.Text = "Sipariş Ekle";
             this.ProductAdded.UseVisualStyleBackColor = true;
             // 
-            // cbxCategory
+            // cbxEmployee
             // 
-            this.cbxCategory.FormattingEnabled = true;
-            this.cbxCategory.Location = new System.Drawing.Point(131, 43);
-            this.cbxCategory.Name = "cbxCategory";
-            this.cbxCategory.Size = new System.Drawing.Size(146, 21);
-            this.cbxCategory.TabIndex = 116;
+            this.cbxEmployee.FormattingEnabled = true;
+            this.cbxEmployee.Location = new System.Drawing.Point(131, 43);
+            this.cbxEmployee.Name = "cbxEmployee";
+            this.cbxEmployee.Size = new System.Drawing.Size(146, 21);
+            this.cbxEmployee.TabIndex = 116;
             // 
             // label3
             // 
@@ -340,13 +340,13 @@
             this.label3.TabIndex = 115;
             this.label3.Text = "Yetkili";
             // 
-            // cbxSupplier
+            // cbxCustomer
             // 
-            this.cbxSupplier.FormattingEnabled = true;
-            this.cbxSupplier.Location = new System.Drawing.Point(131, 12);
-            this.cbxSupplier.Name = "cbxSupplier";
-            this.cbxSupplier.Size = new System.Drawing.Size(146, 21);
-            this.cbxSupplier.TabIndex = 114;
+            this.cbxCustomer.FormattingEnabled = true;
+            this.cbxCustomer.Location = new System.Drawing.Point(131, 12);
+            this.cbxCustomer.Name = "cbxCustomer";
+            this.cbxCustomer.Size = new System.Drawing.Size(146, 21);
+            this.cbxCustomer.TabIndex = 114;
             // 
             // label2
             // 
@@ -376,7 +376,7 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbxProduct);
             this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.dataGridView1);
@@ -401,12 +401,13 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ProductList);
             this.Controls.Add(this.ProductAdded);
-            this.Controls.Add(this.cbxCategory);
+            this.Controls.Add(this.cbxEmployee);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.cbxSupplier);
+            this.Controls.Add(this.cbxCustomer);
             this.Controls.Add(this.label2);
             this.Name = "OrderUpdateForm";
             this.Text = "OrderUpdateForm";
+            this.Load += new System.EventHandler(this.OrderUpdateForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -421,7 +422,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxProduct;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -446,9 +447,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button ProductList;
         private System.Windows.Forms.Button ProductAdded;
-        private System.Windows.Forms.ComboBox cbxCategory;
+        private System.Windows.Forms.ComboBox cbxEmployee;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbxSupplier;
+        private System.Windows.Forms.ComboBox cbxCustomer;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button5;
     }

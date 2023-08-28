@@ -46,6 +46,7 @@
             this.btnDelete.TabIndex = 27;
             this.btnDelete.Text = "Sil";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // button1
             // 
@@ -65,6 +66,7 @@
             this.ProductUpdate.TabIndex = 25;
             this.ProductUpdate.Text = "Güncelle";
             this.ProductUpdate.UseVisualStyleBackColor = true;
+            this.ProductUpdate.Click += new System.EventHandler(this.ProductUpdate_Click);
             // 
             // ProductAdd
             // 

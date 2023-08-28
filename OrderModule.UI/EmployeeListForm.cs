@@ -89,5 +89,24 @@ namespace OrderModule.UI
             }
            
         }
+
+        private void tbxProductName_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (String.IsNullOrEmpty(tbxProductName.Text))
+                {
+                    dgwProduct.DataSource = _employeeService.GetEmployeeByEmployeerName(tbxProductName.Text);
+                }
+                else
+                {
+                    LoadUmployee();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

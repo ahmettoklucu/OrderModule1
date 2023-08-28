@@ -93,5 +93,24 @@ namespace OrderModule.UI
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void tbxProductName_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (String.IsNullOrEmpty(tbxProductName.Text))
+                {
+                    dgwProduct.DataSource = _customerService.GetCustomerByCustomerName(tbxProductName.Text);
+                }
+                else
+                {
+                    LoadCustomer();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -120,6 +121,28 @@ namespace OrderModule.Bussiness.Concrete
             else
             {
                 Messege = "Bu telefon sistemde bulunmamaktadir.";
+                result = false;
+            }
+            return result;
+        }
+
+        public bool UserNameLogin(string UserName, string password, out string Messege)
+        {
+            bool result = false;
+            Messege = "";
+            var User = _userDal.Get(p => p.UserName == UserName);
+            if (User != null)
+            {
+                if (VerifySHA256Hash(password, User.Password) == false)
+                {
+                    Messege = "Şifre hatalı tekrar deneyiniz.";
+                    result = false;
+                }
+
+            }
+            else
+            {
+                Messege = "Bu Kullanıcı ismi sistemde bulunmamaktadir.";
                 result = false;
             }
             return result;

@@ -83,6 +83,7 @@
             this.tbxProductName.Name = "tbxProductName";
             this.tbxProductName.Size = new System.Drawing.Size(117, 20);
             this.tbxProductName.TabIndex = 23;
+            this.tbxProductName.TextChanged += new System.EventHandler(this.tbxProductName_TextChanged);
             // 
             // dgwProduct
             // 
