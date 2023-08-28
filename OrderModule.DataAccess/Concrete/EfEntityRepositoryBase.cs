@@ -25,6 +25,17 @@ namespace OrderModule.DataAccess.Concrete
             }
         }
 
+        public void AddRange(List<TEntity> entities)
+        {
+            using (TContext context = new TContext())
+            {
+                var addedEntity = context.Entry(entities);
+                addedEntity.State = EntityState.Added;
+                context.SaveChanges();
+
+            }
+        }
+
         public  void Delete(TEntity entity)
         {
             using (TContext context = new TContext())

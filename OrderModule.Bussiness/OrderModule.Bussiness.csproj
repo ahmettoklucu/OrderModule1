@@ -70,6 +70,7 @@
     <Compile Include="ValidationRules\FluentValidation\CustomerValidator.cs" />
     <Compile Include="ValidationRules\FluentValidation\EmployeeValidator.cs" />
     <Compile Include="ValidationRules\FluentValidation\ProductValidator.cs" />
+    <Compile Include="ValidationRules\FluentValidation\SupplierValidator.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
