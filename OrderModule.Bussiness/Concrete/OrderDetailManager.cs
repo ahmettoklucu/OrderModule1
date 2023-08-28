@@ -1,4 +1,5 @@
 ﻿using OrderModule.Bussiness.Abstract;
+using OrderModule.Bussiness.Utilities;
 using OrderModule.DataAccess.Abstract;
 using OrderModule.Entities.Concrete;
 using System;
@@ -19,6 +20,7 @@ namespace OrderModule.Bussiness.Concrete
 
         public void Add(OrderDetail orderDetail)
         {
+            //ValidationTool.Validate(new ordde)
             _orderDetailDal.Add(orderDetail);
         }
 

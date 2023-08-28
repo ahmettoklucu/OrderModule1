@@ -20,6 +20,10 @@ namespace DevFreamwork.Northwind.DataAccess.Concrete.EntityFreamwork.Mappings
             Property(x => x.UnitPrice).HasColumnName("UnitPrice");
             Property(x => x.Quantity).HasColumnName("Quantity");
             Property(x => x.Discount).HasColumnName("Discount");
+            Property(x => x.Saved).HasColumnName("Saved");
+            Property(x => x.SavedDate).HasColumnName("SavedDate");
+            Property(x => x.UpdatedDate).HasColumnName("UpdatedDate");
+            Property(x => x.Updated).HasColumnName("Updated");
         }
     }
 }

@@ -25,11 +25,11 @@ namespace OrderModule.Entities.Concrete
         public string Extension { get; set;}
         public string Notes { get; set;}
         public int ReportsTo { get; set; }
-        public int PhotoPath { get; set;}
+        public string PhotoPath { get; set;}
         public string Photo { get; set; }
-        public int Saved { get; set; }
-        public DateTime SavedDate { get; set; }
-        public int Updated { get; set; }
-        public DateTime UpdatedDate { get; set; }
+        public int? Saved { get; set; }
+        public DateTime? SavedDate { get; set; }
+        public int? Updated { get; set; }
+        public DateTime? UpdatedDate { get; set; }
     }
 }

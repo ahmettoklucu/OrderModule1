@@ -1,4 +1,6 @@
 ﻿using OrderModule.Bussiness.Abstract;
+using OrderModule.Bussiness.Utilities;
+using OrderModule.Bussiness.ValidationRules.FluentValidation;
 using OrderModule.DataAccess.Abstract;
 using OrderModule.Entities.Concrete;
 using System;
@@ -19,6 +21,7 @@ namespace OrderModule.Bussiness.Concrete
         }
         public void Add(Order order)
         {
+            ValidationTool.Validate(new OrderValidator(), order);
             _orderDal.Add(order);
         }
 
@@ -39,6 +42,7 @@ namespace OrderModule.Bussiness.Concrete
 
         public void Update(Order order)
         {
+            ValidationTool.Validate(new OrderValidator(), order);
            _orderDal.Update(order);
         }
     }

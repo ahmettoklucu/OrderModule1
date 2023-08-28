@@ -1,9 +1,12 @@
 ﻿using OrderModule.Bussiness.Abstract;
+using OrderModule.Bussiness.Utilities;
+using OrderModule.Bussiness.ValidationRules.FluentValidation;
 using OrderModule.DataAccess.Abstract;
 using OrderModule.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,13 +15,43 @@ namespace OrderModule.Bussiness.Concrete
     public class UserManager : IUserService
     {
         private IUserDal _userDal;
+        public string ComputeSHA256Hash(string rawData)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
+        public bool VerifySHA256Hash(string rawData, string hash)
+        {
+            string hashOfInput = ComputeSHA256Hash(rawData);
+            StringComparer comparer = StringComparer.OrdinalIgnoreCase;
+
+            if (comparer.Compare(hashOfInput, hash) == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public UserManager(IUserDal userDal)
         {
+            
             _userDal = userDal;
             
         }
         public void Add(User user)
         {
+            user.Password = ComputeSHA256Hash(user.Password);
             _userDal.Add(user);
         }
 
@@ -44,7 +77,52 @@ namespace OrderModule.Bussiness.Concrete
 
         public void Update(User user)
         {
+            //ValidationTool.Validate(new SupplierValidator(), supplier);
             _userDal.Update(user);
+        }
+
+        public bool EmailLogin(string Email, string password,out string Messege)
+        {
+            bool result = false;
+            Messege = "";
+            var User=_userDal.Get(p=>p.Email==Email);
+            if (User!=null)
+            {
+                if (VerifySHA256Hash(password, User.Password)==false)
+                {
+                    Messege = "Şifre hatalı tekrar deneyiniz.";
+                    result = false;
+                }
+
+            }
+            else 
+            {
+                Messege = "Bu Email Adresi sistemde bulunmamaktadir.";
+                result = false; 
+            }
+            return result;
+        }
+
+        public bool PhoneLogin(string Phone, string password, out string Messege)
+        {
+            bool result = false;
+            Messege = "";
+            var User = _userDal.Get(p => p.Phone == Phone);
+            if (User != null)
+            {
+                if (VerifySHA256Hash(password, User.Password) == false)
+                {
+                    Messege = "Şifre hatalı tekrar deneyiniz.";
+                    result = false;
+                }
+
+            }
+            else
+            {
+                Messege = "Bu telefon sistemde bulunmamaktadir.";
+                result = false;
+            }
+            return result;
         }
     }
 }

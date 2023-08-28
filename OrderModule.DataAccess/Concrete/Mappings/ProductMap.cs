@@ -24,6 +24,10 @@ namespace DevFreamwork.Northwind.DataAccess.Concrete.EntityFreamwork.Mappings
             Property(x => x.UnitsOnOrder).HasColumnName("UnitsOnOrder");
             Property(x => x.ReorderLevel).HasColumnName("ReorderLevel");
             Property(x => x.Discontinued).HasColumnName("Discontinued");
+            Property(x => x.Saved).HasColumnName("Saved");
+            Property(x => x.SavedDate).HasColumnName("SavedDate");
+            Property(x => x.UpdatedDate).HasColumnName("UpdatedDate");
+            Property(x => x.Updated).HasColumnName("Updated");
         }
 
     }

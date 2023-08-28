@@ -16,6 +16,10 @@ namespace DevFreamwork.Northwind.DataAccess.Concrete.EntityFreamwork.Mappings
             HasKey(x => x.CategoryID);
             Property(x=>x.CategoryName).HasColumnName("CategoryName");
             Property(x=>x.CategoryDescription).HasColumnName("Description");
+            Property(x => x.Saved).HasColumnName("Saved");
+            Property(x => x.SavedDate).HasColumnName("SavedDate");
+            Property(x => x.UpdatedDate).HasColumnName("UpdatedDate");
+            Property(x => x.Updated).HasColumnName("Updated");
         }
     }
 }

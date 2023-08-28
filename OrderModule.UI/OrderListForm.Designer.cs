@@ -113,6 +113,7 @@
             this.Controls.Add(this.dgwProduct);
             this.Name = "OrderListForm";
             this.Text = "OrderListForm";
+            this.Load += new System.EventHandler(this.OrderListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

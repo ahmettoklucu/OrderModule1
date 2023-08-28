@@ -14,5 +14,6 @@ namespace OrderModule.Entities.Concrete
         public string Password { get; set; }
         public string Phone { get; set; }
         public int RoleId { get; set; }
+        public int Status { get; set; }
     }
 }

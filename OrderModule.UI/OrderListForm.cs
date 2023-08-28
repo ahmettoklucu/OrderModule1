@@ -1,4 +1,7 @@
-﻿using System;
+﻿using OrderModule.Bussiness.Abstract;
+using OrderModule.Bussiness.Concrete;
+using OrderModule.DataAccess.Concrete;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +18,9 @@ namespace OrderModule.UI
         public OrderListForm()
         {
             InitializeComponent();
+            _orderService=new OrderManager(new EfOrderDal());
         }
-
+        private IOrderService _orderService;
         private void button1_Click(object sender, EventArgs e)
         {
             MenuForm menuForm = new MenuForm();
@@ -27,6 +31,15 @@ namespace OrderModule.UI
         {
             OrderAddForm orderAddForm = new OrderAddForm();
             orderAddForm.Show();
+        }
+        private void LoadOrder()
+        {
+            dgwProduct.DataSource=_orderService.GetAll();
+        }
+
+        private void OrderListForm_Load(object sender, EventArgs e)
+        {
+            LoadOrder();
         }
     }
 }

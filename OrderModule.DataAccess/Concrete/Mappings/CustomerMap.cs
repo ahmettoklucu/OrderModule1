@@ -26,6 +26,10 @@ namespace DevFreamwork.Northwind.DataAccess.Concrete.EntityFreamwork.Mappings
             Property(x => x.Country).HasColumnName("Country");
             Property(x => x.Phone).HasColumnName("Phone");
             Property(x => x.Fax).HasColumnName("Fax");
+            Property(x => x.Saved).HasColumnName("Saved");
+            Property(x => x.SavedDate).HasColumnName("SavedDate");
+            Property(x => x.UpdatedDate).HasColumnName("UpdatedDate");
+            Property(x => x.Updated).HasColumnName("Updated");
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using OrderModule.Bussiness.Abstract;
+using OrderModule.Bussiness.Utilities;
+using OrderModule.Bussiness.ValidationRules.FluentValidation;
 using OrderModule.DataAccess.Abstract;
 using OrderModule.Entities.Concrete;
 using System;
@@ -20,7 +22,8 @@ namespace OrderModule.Bussiness.Concrete
 
         public void Add(Supplier supplier)
         {
-           _supplierDal.Add(supplier);
+            ValidationTool.Validate(new SupplierValidator(), supplier);
+            _supplierDal.Add(supplier);
         }
 
         public void Delete(Supplier supplier)
@@ -38,14 +41,15 @@ namespace OrderModule.Bussiness.Concrete
             return _supplierDal.GetAll();
         }
 
-        public List<Supplier> GetSupplierBySupplierName(string categoryName)
+        public List<Supplier> GetSupplierByCompanyName(string categoryName)
         {
-            throw new NotImplementedException();
+            return _supplierDal.GetAll(p => p.CompanyName.ToLower().Contains(categoryName.ToLower()));
         }
 
         public void Update(Supplier supplier)
         {
-            throw new NotImplementedException();
+            ValidationTool.Validate(new SupplierValidator(), supplier);
+           _supplierDal.Update(supplier);
         }
     }
 }

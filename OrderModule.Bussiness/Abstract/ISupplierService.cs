@@ -11,7 +11,7 @@ namespace OrderModule.Bussiness.Abstract
     {
         Supplier Get(int SupplierId);
         List<Supplier> GetAll();
-        List<Supplier> GetSupplierBySupplierName(string categoryName);
+        List<Supplier> GetSupplierByCompanyName(string CompanyName);
         void Add(Supplier supplier);
         void Update(Supplier supplier);
         void Delete(Supplier supplier);
