@@ -18,6 +18,10 @@ namespace OrderModule.Entities.Concrete
         public decimal UnitPrice { get; set; }
         public int Quantity { get; set; }
         public bool Discount { get; set; }
-    
+        public int Saved { get; set; }
+        public DateTime SavedDate { get; set; }
+        public int Updated { get; set; }
+        public DateTime UpdatedDate { get; set; }
+
     }
 }

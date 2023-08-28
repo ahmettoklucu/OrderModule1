@@ -26,5 +26,9 @@ namespace OrderModule.Entities.Concrete
         public Supplier Supplier { get; set; }
         [ForeignKey("CategoryID")]
         public Category Category { get; set; }
+        public int Saved { get; set; }
+        public DateTime SavedDate { get; set; }
+        public int Updated { get; set; }
+        public DateTime UpdatedDate { get; set; }
     }
 }

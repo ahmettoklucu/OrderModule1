@@ -53,9 +53,11 @@
     <Compile Include="Concrete\OrderDetail.cs" />
     <Compile Include="Concrete\Product.cs" />
     <Compile Include="Concrete\Region.cs" />
+    <Compile Include="Concrete\Role.cs" />
     <Compile Include="Concrete\Shipper.cs" />
     <Compile Include="Concrete\Supplier.cs" />
     <Compile Include="Concrete\Territory.cs" />
+    <Compile Include="Concrete\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

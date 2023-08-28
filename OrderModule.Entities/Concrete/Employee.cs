@@ -27,5 +27,9 @@ namespace OrderModule.Entities.Concrete
         public int ReportsTo { get; set; }
         public int PhotoPath { get; set;}
         public string Photo { get; set; }
+        public int Saved { get; set; }
+        public DateTime SavedDate { get; set; }
+        public int Updated { get; set; }
+        public DateTime UpdatedDate { get; set; }
     }
 }

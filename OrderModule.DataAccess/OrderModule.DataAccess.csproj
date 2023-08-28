@@ -58,6 +58,7 @@
     <Compile Include="Abstract\IEmployeeDal.cs" />
     <Compile Include="Abstract\IEmployeeTerritoryDal.cs" />
     <Compile Include="Abstract\IEntityRepository.cs" />
+    <Compile Include="Abstract\IRoleDal.cs" />
     <Compile Include="Abstract\IOrderDal.cs" />
     <Compile Include="Abstract\IOrderDetailDal.cs" />
     <Compile Include="Abstract\IProductDal.cs" />
@@ -65,12 +66,15 @@
     <Compile Include="Abstract\IShipperDal.cs" />
     <Compile Include="Abstract\ISupplierDal.cs" />
     <Compile Include="Abstract\ITerritoryDal.cs" />
+    <Compile Include="Abstract\IUserDal.cs" />
     <Compile Include="Concrete\EfCategoryDal.cs" />
     <Compile Include="Concrete\EfCustomerCustomerDemoDal.cs" />
     <Compile Include="Concrete\EfCustomerDal.cs" />
     <Compile Include="Concrete\EfEmployeeDal.cs" />
     <Compile Include="Concrete\EfEmployeeTerritoryDal.cs" />
     <Compile Include="Concrete\EfEntityRepositoryBase.cs" />
+    <Compile Include="Concrete\EfRoleDal.cs" />
+    <Compile Include="Concrete\EfUserDal.cs" />
     <Compile Include="Concrete\EfOrderDal.cs" />
     <Compile Include="Concrete\EfOrderDetailDal.cs" />
     <Compile Include="Concrete\EfProductDal.cs" />
@@ -88,9 +92,11 @@
     <Compile Include="Concrete\Mappings\OrderMap.cs" />
     <Compile Include="Concrete\Mappings\ProductMap.cs" />
     <Compile Include="Concrete\Mappings\RegionMap.cs" />
+    <Compile Include="Concrete\Mappings\RoleMap.cs" />
     <Compile Include="Concrete\Mappings\ShipperMap.cs" />
     <Compile Include="Concrete\Mappings\SupplierMap.cs" />
     <Compile Include="Concrete\Mappings\TerritoryMap.cs" />
+    <Compile Include="Concrete\Mappings\UserMap.cs" />
     <Compile Include="Concrete\OrderModuleContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -396,7 +396,7 @@
             this.Controls.Add(this.cbxSupplier);
             this.Controls.Add(this.label2);
             this.Name = "OrderAddForm";
-            this.Text = "OrderAddForm";
+            this.Text = "x";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();

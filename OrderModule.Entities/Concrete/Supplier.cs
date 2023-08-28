@@ -22,6 +22,10 @@ namespace OrderModule.Entities.Concrete
         public string Phone { get; set;}
         public string Fax { get; set;}
         public string HomePage { get; set;}
+        public int Saved { get; set; }
+        public DateTime SavedDate { get; set; }
+        public int Updated { get; set; }
+        public DateTime UpdatedDate { get; set; }
 
     }
 }
