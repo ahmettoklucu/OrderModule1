@@ -74,6 +74,7 @@
     <Compile Include="ValidationRules\FluentValidation\OrderValidator.cs" />
     <Compile Include="ValidationRules\FluentValidation\ProductValidator.cs" />
     <Compile Include="ValidationRules\FluentValidation\SupplierValidator.cs" />
+    <Compile Include="ValidationRules\FluentValidation\UserValidator.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

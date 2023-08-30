@@ -12,9 +12,9 @@ namespace OrderModule.Bussiness.Abstract
         List<User> GetAll();
         List<User> GetUserByUserName(string userName);
         User Get(int UserId);
-        void Add(User user);
-        void Update(User user);
-        void Delete(User user);
+        void Add(User user,int userId,out string messege);
+        void Update(User user, int userId, out string messege);
+        void Delete(User user, int userId, out string messege);
         bool EmailLogin(string Email,string password, out string Messege);
         bool PhoneLogin(string Phone,string password, out string Messege);
         bool UserNameLogin(string UserName, string password, out string Messege);

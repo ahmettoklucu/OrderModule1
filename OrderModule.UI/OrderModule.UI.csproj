@@ -110,6 +110,12 @@
     <Compile Include="EmployeUpdateForm.Designer.cs">
       <DependentUpon>EmployeUpdateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,24 @@
     </Compile>
     <Compile Include="SupplierUpdateForm.Designer.cs">
       <DependentUpon>SupplierUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserAddForm.Designer.cs">
+      <DependentUpon>UserAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserListForm.Designer.cs">
+      <DependentUpon>UserListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsserUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsserUpdateForm.Designer.cs">
+      <DependentUpon>UsserUpdateForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="CateforyAddForm.resx">
       <DependentUpon>CateforyAddForm.cs</DependentUpon>
@@ -237,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SupplierUpdateForm.resx">
       <DependentUpon>SupplierUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserListForm.resx">
+      <DependentUpon>UserListForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -46,19 +46,38 @@ namespace OrderModule.Bussiness.Concrete
         }
         public UserManager(IUserDal userDal)
         {
-            
             _userDal = userDal;
             
         }
-        public void Add(User user)
+        public void Add(User user, int userId,out string messege)
         {
-            user.Password = ComputeSHA256Hash(user.Password);
-            _userDal.Add(user);
+            messege = "";
+            var User = _userDal.Get(p=>p.Id==userId);
+            if (User.RoleId == 1)
+            {
+                user.Password = ComputeSHA256Hash(user.Password);
+                _userDal.Add(user);
+                messege = "Yeni Kullanıcı eklendi.";
+            }
+            else
+            {
+                messege = "Kullanıcı eklemek için yetkiniz bulunmamaktadir.";
+            }
         }
 
-        public void Delete(User user)
+        public void Delete(User user, int userId, out string messege)
         {
-            _userDal.Delete(user);
+            messege = "";
+            var User = _userDal.Get(p => p.Id == userId);
+            if (User.RoleId == 1)
+            {
+                _userDal.Delete(user);
+                messege = "Yeni Kullanıcı silindi.";
+            }
+            else
+            {
+                messege = "Kullanıcı silmek için yetkiniz bulunmamaktadir.";
+            }
         }
 
         public User Get(int UserId)
@@ -76,10 +95,20 @@ namespace OrderModule.Bussiness.Concrete
             return _userDal.GetAll(p=>p.Email.ToLower().Contains(userName.ToLower()));
         }
 
-        public void Update(User user)
+        public void Update(User user, int userId,out string messege)
         {
-            //ValidationTool.Validate(new SupplierValidator(), supplier);
-            _userDal.Update(user);
+            messege = "";
+            var User = _userDal.Get(p => p.Id == userId);
+            if (User.RoleId == 1)
+            {
+                //ValidationTool.Validate(new SupplierValidator(), supplier);
+                _userDal.Update(user);
+                messege = "Yeni Kullanıcı güncellendi";
+            }
+            else
+            {
+                messege = "Kullanıcı güncellemek için yetkiniz bulunmamaktadir.";
+            }
         }
 
         public bool EmailLogin(string Email, string password,out string Messege)
@@ -93,6 +122,11 @@ namespace OrderModule.Bussiness.Concrete
                 {
                     Messege = "Şifre hatalı tekrar deneyiniz.";
                     result = false;
+                }
+                else
+                {
+                    result = true;
+                    Messege = "Giriş başarili.";
                 }
 
             }
@@ -116,6 +150,11 @@ namespace OrderModule.Bussiness.Concrete
                     Messege = "Şifre hatalı tekrar deneyiniz.";
                     result = false;
                 }
+                else
+                {
+                    result = true;
+                    Messege = "Giriş başarili.";
+                }
 
             }
             else
@@ -137,6 +176,11 @@ namespace OrderModule.Bussiness.Concrete
                 {
                     Messege = "Şifre hatalı tekrar deneyiniz.";
                     result = false;
+                }
+                else
+                {
+                    result = true;
+                    Messege = "Giriş başarili.";
                 }
 
             }
