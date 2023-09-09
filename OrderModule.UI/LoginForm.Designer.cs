@@ -35,7 +35,7 @@
             // 
             this.screenLogin1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.screenLogin1.Location = new System.Drawing.Point(13, 13);
-            this.screenLogin1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.screenLogin1.Margin = new System.Windows.Forms.Padding(2);
             this.screenLogin1.Name = "screenLogin1";
             this.screenLogin1.Size = new System.Drawing.Size(339, 209);
             this.screenLogin1.TabIndex = 0;

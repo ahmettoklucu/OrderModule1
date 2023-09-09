@@ -69,5 +69,10 @@ namespace OrderModule.UI
             LoadEmployee();
             LoadProduct();
         }
+
+        private void ProductAdded_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

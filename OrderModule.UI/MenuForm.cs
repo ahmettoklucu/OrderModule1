@@ -48,5 +48,10 @@ namespace OrderModule.UI
             ProductListForm productListForm = new ProductListForm(userId);
             productListForm.Show();
         }
+
+        private void MenuForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

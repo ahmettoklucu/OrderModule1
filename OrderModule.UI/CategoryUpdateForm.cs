@@ -57,7 +57,9 @@ namespace OrderModule.UI
                 {
                     CategoryName = tbxCategoryName.Text,
                     CategoryDescription = tbxDescription.Text,
-                   
+                    Updated = _userId,
+                    UpdatedDate = DateTime.Now,
+
                 });
                 MessageBox.Show("Kategori Güncellendi.");
                 CategoryListForm categoryListForm = new CategoryListForm(_userId);

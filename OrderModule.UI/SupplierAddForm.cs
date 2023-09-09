@@ -16,23 +16,23 @@ namespace OrderModule.UI
 {
     public partial class SupplierAddForm : Form
     {
-        private int userId;
+        private int _userId;
         public SupplierAddForm(int userId)
         {
             InitializeComponent();
-            this.userId = userId;
+            _userId = userId;
             _supplierService =new SupplierManager(new EfSupplierDal());
         }
         private ISupplierService _supplierService;
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuForm menuForm = new MenuForm(userId);
+            MenuForm menuForm = new MenuForm(_userId);
             menuForm.ShowDialog();
         }
 
         private void ProductList_Click(object sender, EventArgs e)
         {
-            SupplierListForm form = new SupplierListForm(userId);
+            SupplierListForm form = new SupplierListForm(_userId);
             form.Show();
         }
 
@@ -50,7 +50,10 @@ namespace OrderModule.UI
                     Phone = tbxPhone.Text,
                     PostalCode = tbxPostalCode.Text,
                     Region = tbxRegion.Text,
-
+                    Saved = _userId,
+                    SavedDate = DateTime.Now,
+                    Updated = _userId,
+                    UpdatedDate = DateTime.Now,
                 });
             }
             catch (Exception ex)

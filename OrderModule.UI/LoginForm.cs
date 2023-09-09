@@ -44,7 +44,7 @@ namespace OrderModule.UI
             }
             else if (LoginType == TLoginType.Mail)
             {
-                var user = _userService.EmailLogin(screenLogin1.KullaniciAdi, screenLogin1.Sifre, out HataMesaji);
+                var user = _userService.EmailLogin(screenLogin1.Email, screenLogin1.Sifre, out HataMesaji);
                 if (user != null)
                 {
                     MessageBox.Show(HataMesaji);
@@ -58,7 +58,7 @@ namespace OrderModule.UI
             }
             else
             {
-                var user = _userService.PhoneLogin(screenLogin1.KullaniciAdi, screenLogin1.Sifre, out HataMesaji);
+                var user = _userService.PhoneLogin(screenLogin1.Phone, screenLogin1.Sifre, out HataMesaji);
                 if (user != null)
                 {
                     MessageBox.Show(HataMesaji);

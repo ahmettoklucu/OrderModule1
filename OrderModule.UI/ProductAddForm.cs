@@ -16,11 +16,11 @@ namespace OrderModule.UI
 {
     public partial class ProductAddForm : Form
     {
-        private int userId;
+        private int _userId;
         public ProductAddForm(int userId)
         {
             InitializeComponent();
-            this.userId = userId;
+            _userId = userId;
             _categoryService = new CategoryManager(new EfCategoryDal());
             _supplierService=new SupplierManager(new EfSupplierDal());
             _productService = new ProductManager(new EfProductDal());
@@ -57,11 +57,15 @@ namespace OrderModule.UI
                     SupplierID = cbxSupplier.SelectedIndex,
                     ProductName = tbxProductName.Text,
                     QuantityPerUnit = tbxQuantityPerUnit.Text,
-                    UnitPrice = Convert.ToDecimal(nmrUnitPrice.Text)
+                    UnitPrice = Convert.ToDecimal(nmrUnitPrice.Text),
+                    Saved = _userId,
+                    SavedDate = DateTime.Now,
+                    Updated = _userId,
+                    UpdatedDate = DateTime.Now,
 
                 });
                 MessageBox.Show("Ürün Kaydedildi");
-                ProductListForm productListForm = new ProductListForm(userId);
+                ProductListForm productListForm = new ProductListForm(_userId);
                 productListForm.Show();
             }
             catch (Exception ex)
@@ -74,27 +78,27 @@ namespace OrderModule.UI
 
         private void ProductList_Click(object sender, EventArgs e)
         {
-            ProductListForm productListForm = new ProductListForm(userId);
+            ProductListForm productListForm = new ProductListForm(_userId);
 
             productListForm.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuForm menuForm= new MenuForm(userId);
+            MenuForm menuForm= new MenuForm(_userId);
             menuForm.Show();
 
         }
 
         private void SupplierAdd_Click(object sender, EventArgs e)
         {
-            SupplierAddForm supplierAddForm= new SupplierAddForm(userId);
+            SupplierAddForm supplierAddForm= new SupplierAddForm(_userId);
             supplierAddForm.Show();
         }
 
         private void CategoryAdd_Click(object sender, EventArgs e)
         {
-            CateforyAddForm cateforyAddForm= new CateforyAddForm(userId); 
+            CateforyAddForm cateforyAddForm= new CateforyAddForm(_userId); 
             cateforyAddForm.Show();
         }
     }

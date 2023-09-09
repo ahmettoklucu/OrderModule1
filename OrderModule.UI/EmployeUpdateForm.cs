@@ -65,6 +65,9 @@ namespace OrderModule.UI
                     Address=tbxAddress.Text,
                     City=tbxCity.Text,
                     TitleOfCourtesy=tbxTitleOfCourtesy.Text,
+                    Updated = _userId,
+                    UpdatedDate = DateTime.Now,
+
                 });
                 MessageBox.Show("Ürün Güncelleştirildi.");
                 EmployeeListForm employeeListForm = new EmployeeListForm(_userId);

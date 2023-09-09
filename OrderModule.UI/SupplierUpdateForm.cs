@@ -66,6 +66,8 @@ namespace OrderModule.UI
                     Phone=tbxPhone.Text,
                     PostalCode=tbxPostalCode.Text,
                     Region=tbxRegion.Text,
+                    Updated = _userId,
+                    UpdatedDate = DateTime.Now,
 
                 });
             }

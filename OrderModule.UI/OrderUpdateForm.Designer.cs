@@ -322,6 +322,7 @@
             this.ProductAdded.TabIndex = 117;
             this.ProductAdded.Text = "Sipariş Ekle";
             this.ProductAdded.UseVisualStyleBackColor = true;
+            this.ProductAdded.Click += new System.EventHandler(this.ProductAdded_Click);
             // 
             // cbxEmployee
             // 

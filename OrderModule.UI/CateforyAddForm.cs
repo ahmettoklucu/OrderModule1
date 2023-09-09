@@ -46,6 +46,10 @@ namespace OrderModule.UI
                 {
                     CategoryName = tbxCategoryName.Text,
                     CategoryDescription = tbxCategoryDescription.Text,
+                    Saved = _userId,
+                    SavedDate=DateTime.Now,
+                    Updated=_userId,
+                    UpdatedDate=DateTime.Now,
 
                 });
                 MessageBox.Show("Kategori Kaydedildi");

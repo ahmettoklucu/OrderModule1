@@ -16,23 +16,23 @@ namespace OrderModule.UI
 {
     public partial class EmployeeAddForm : Form
     {
-        private int userId;
-        public EmployeeAddForm(int _UserId)
+        private int _userId;
+        public EmployeeAddForm(int UserId)
         {
             InitializeComponent();
             _employeeService = new EmployeeManager(new EfEmployeeDal());
-            userId = _UserId;
+            _userId = UserId;
         }
         private IEmployeeService _employeeService;
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuForm menuForm = new MenuForm(userId);
+            MenuForm menuForm = new MenuForm(_userId);
             menuForm.Show();
         }
 
         private void ProductList_Click(object sender, EventArgs e)
         {
-            EmployeeListForm  employeeListForm = new EmployeeListForm(userId);
+            EmployeeListForm  employeeListForm = new EmployeeListForm(_userId);
             employeeListForm.Show();
         }
 
@@ -49,6 +49,10 @@ namespace OrderModule.UI
                     City = tbxCity.Text,
                     PostalCode = tbxPostalCode.Text,
                     TitleOfCourtesy = tbxTitleOfCourtesy.Text,
+                    Saved = _userId,
+                    SavedDate = DateTime.Now,
+                    Updated = _userId,
+                    UpdatedDate = DateTime.Now,
 
                 });
                 MessageBox.Show("İşçi eklendi.");
