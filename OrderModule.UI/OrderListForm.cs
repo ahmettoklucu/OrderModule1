@@ -16,24 +16,26 @@ namespace OrderModule.UI
 {
     public partial class OrderListForm : Form
     {
-        public OrderListForm()
+        public OrderListForm(int userId)
         {
             InitializeComponent();
+            this.userId = userId;
             _orderService=new OrderManager(new EfOrderDal());
             _orderDetailService = new OrderDetailManager(new EfOrderDetailDal());
         }
         private IOrderService _orderService;
         private IOrderDetailService _orderDetailService;
         private int _orderId;
+        private int userId;
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuForm menuForm = new MenuForm();
+            MenuForm menuForm = new MenuForm(userId);
             menuForm.Show();
         }
 
         private void ProductAdd_Click(object sender, EventArgs e)
         {
-            OrderAddForm orderAddForm = new OrderAddForm();
+            OrderAddForm orderAddForm = new OrderAddForm(userId);
             orderAddForm.Show();
         }
         private void LoadOrder()
@@ -80,7 +82,7 @@ namespace OrderModule.UI
 
         private void ProductUpdate_Click(object sender, EventArgs e)
         {
-            OrderUpdateForm form = new OrderUpdateForm(_orderId);
+            OrderUpdateForm form = new OrderUpdateForm(userId, _orderId);
             form.Show();
         }
     }

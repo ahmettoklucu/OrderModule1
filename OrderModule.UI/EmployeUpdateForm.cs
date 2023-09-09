@@ -17,21 +17,23 @@ namespace OrderModule.UI
     public partial class EmployeUpdateForm : Form
     {
         private int _employeeId;
-        public EmployeUpdateForm(int employeeId)
+        private int _userId;
+        public EmployeUpdateForm(int userId, int employeeId)
         {
             InitializeComponent();
+            _userId = userId;
             _employeeId = employeeId;
             _employeeService=new EmployeeManager(new EfEmployeeDal());
         }
         private IEmployeeService _employeeService;
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuForm menuForm = new MenuForm();
+            MenuForm menuForm = new MenuForm(_userId);
             menuForm.Show();
         }
         private void ProductList_Click(object sender, EventArgs e)
         {
-            EmployeeListForm employeesForm = new EmployeeListForm();
+            EmployeeListForm employeesForm = new EmployeeListForm(_userId);
             employeesForm.Show();
         }
         public void LoadEmployee()
@@ -65,7 +67,7 @@ namespace OrderModule.UI
                     TitleOfCourtesy=tbxTitleOfCourtesy.Text,
                 });
                 MessageBox.Show("Ürün Güncelleştirildi.");
-                EmployeeListForm employeeListForm = new EmployeeListForm();
+                EmployeeListForm employeeListForm = new EmployeeListForm(_userId);
                 employeeListForm.Show();
             }
             catch(Exception ex)

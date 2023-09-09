@@ -16,7 +16,7 @@ namespace OrderModule.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ProductListForm());
+            Application.Run(new LoginForm());
         }
     }
 }

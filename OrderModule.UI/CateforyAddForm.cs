@@ -16,9 +16,11 @@ namespace OrderModule.UI
 {
     public partial class CateforyAddForm : Form
     {
-        public CateforyAddForm()
+        private int _userId;
+        public CateforyAddForm(int userId)
         {
             InitializeComponent();
+            _userId = userId;
             _categoryService=new CategoryManager(new EfCategoryDal());
 
         }
@@ -26,13 +28,13 @@ namespace OrderModule.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuForm menuForm = new MenuForm();
+            MenuForm menuForm = new MenuForm(_userId);
             menuForm.Show();
         }
 
         private void ProductList_Click(object sender, EventArgs e)
         {
-            CategoryListForm categoryListForm = new CategoryListForm();
+            CategoryListForm categoryListForm = new CategoryListForm(_userId);
             categoryListForm.Show();
         }
 
@@ -47,7 +49,7 @@ namespace OrderModule.UI
 
                 });
                 MessageBox.Show("Kategori Kaydedildi");
-                ProductListForm productListForm = new ProductListForm();
+                ProductListForm productListForm = new ProductListForm(_userId);
                 productListForm.Show();
             }
             catch (Exception ex)

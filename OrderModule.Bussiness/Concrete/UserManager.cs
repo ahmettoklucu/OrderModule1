@@ -111,9 +111,8 @@ namespace OrderModule.Bussiness.Concrete
             }
         }
 
-        public bool EmailLogin(string Email, string password,out string Messege)
+        public User EmailLogin(string Email, string password,out string Messege)
         {
-            bool result = false;
             Messege = "";
             var User=_userDal.Get(p=>p.Email==Email);
             if (User!=null)
@@ -121,26 +120,24 @@ namespace OrderModule.Bussiness.Concrete
                 if (VerifySHA256Hash(password, User.Password)==false)
                 {
                     Messege = "Şifre hatalı tekrar deneyiniz.";
-                    result = false;
+                    User=null;
                 }
                 else
                 {
-                    result = true;
                     Messege = "Giriş başarili.";
+                    
                 }
 
             }
             else 
             {
                 Messege = "Bu Email Adresi sistemde bulunmamaktadir.";
-                result = false; 
             }
-            return result;
+            return User;
         }
 
-        public bool PhoneLogin(string Phone, string password, out string Messege)
+        public User PhoneLogin(string Phone, string password, out string Messege)
         {
-            bool result = false;
             Messege = "";
             var User = _userDal.Get(p => p.Phone == Phone);
             if (User != null)
@@ -148,11 +145,10 @@ namespace OrderModule.Bussiness.Concrete
                 if (VerifySHA256Hash(password, User.Password) == false)
                 {
                     Messege = "Şifre hatalı tekrar deneyiniz.";
-                    result = false;
+                    User=null;
                 }
                 else
                 {
-                    result = true;
                     Messege = "Giriş başarili.";
                 }
 
@@ -160,14 +156,12 @@ namespace OrderModule.Bussiness.Concrete
             else
             {
                 Messege = "Bu telefon sistemde bulunmamaktadir.";
-                result = false;
             }
-            return result;
+            return User;
         }
 
-        public bool UserNameLogin(string UserName, string password, out string Messege)
+        public User UserNameLogin(string UserName, string password, out string Messege)
         {
-            bool result = false;
             Messege = "";
             var User = _userDal.Get(p => p.UserName == UserName);
             if (User != null)
@@ -175,11 +169,10 @@ namespace OrderModule.Bussiness.Concrete
                 if (VerifySHA256Hash(password, User.Password) == false)
                 {
                     Messege = "Şifre hatalı tekrar deneyiniz.";
-                    result = false;
+                    User = null;
                 }
                 else
                 {
-                    result = true;
                     Messege = "Giriş başarili.";
                 }
 
@@ -187,9 +180,8 @@ namespace OrderModule.Bussiness.Concrete
             else
             {
                 Messege = "Bu Kullanıcı ismi sistemde bulunmamaktadir.";
-                result = false;
             }
-            return result;
+            return User;
         }
     }
 }

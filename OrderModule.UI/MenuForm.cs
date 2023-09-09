@@ -12,38 +12,40 @@ namespace OrderModule.UI
 {
     public partial class MenuForm : Form
     {
-        public MenuForm()
+        private int userId;
+        public MenuForm(int ıd)
         {
             InitializeComponent();
+            userId = ıd;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OrderListForm orderListForm = new OrderListForm();
+            OrderListForm orderListForm = new OrderListForm(userId);
             orderListForm.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            EmployeeListForm employeeListForm = new EmployeeListForm(); 
+            EmployeeListForm employeeListForm = new EmployeeListForm(userId); 
             employeeListForm.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            CustomerListForm customerListForm = new CustomerListForm();
+            CustomerListForm customerListForm = new CustomerListForm(userId);
             customerListForm.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SupplierListForm supplierListForm = new SupplierListForm();
+            SupplierListForm supplierListForm = new SupplierListForm(userId);
             supplierListForm.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            ProductListForm productListForm = new ProductListForm();
+            ProductListForm productListForm = new ProductListForm(userId);
             productListForm.Show();
         }
     }

@@ -16,9 +16,11 @@ namespace OrderModule.UI
 {
     public partial class ProductAddForm : Form
     {
-        public ProductAddForm()
+        private int userId;
+        public ProductAddForm(int userId)
         {
             InitializeComponent();
+            this.userId = userId;
             _categoryService = new CategoryManager(new EfCategoryDal());
             _supplierService=new SupplierManager(new EfSupplierDal());
             _productService = new ProductManager(new EfProductDal());
@@ -59,7 +61,7 @@ namespace OrderModule.UI
 
                 });
                 MessageBox.Show("Ürün Kaydedildi");
-                ProductListForm productListForm = new ProductListForm();
+                ProductListForm productListForm = new ProductListForm(userId);
                 productListForm.Show();
             }
             catch (Exception ex)
@@ -72,27 +74,27 @@ namespace OrderModule.UI
 
         private void ProductList_Click(object sender, EventArgs e)
         {
-            ProductListForm productListForm = new ProductListForm();
+            ProductListForm productListForm = new ProductListForm(userId);
 
             productListForm.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuForm menuForm= new MenuForm();
+            MenuForm menuForm= new MenuForm(userId);
             menuForm.Show();
 
         }
 
         private void SupplierAdd_Click(object sender, EventArgs e)
         {
-            SupplierAddForm supplierAddForm= new SupplierAddForm();
+            SupplierAddForm supplierAddForm= new SupplierAddForm(userId);
             supplierAddForm.Show();
         }
 
         private void CategoryAdd_Click(object sender, EventArgs e)
         {
-            CateforyAddForm cateforyAddForm= new CateforyAddForm(); 
+            CateforyAddForm cateforyAddForm= new CateforyAddForm(userId); 
             cateforyAddForm.Show();
         }
     }

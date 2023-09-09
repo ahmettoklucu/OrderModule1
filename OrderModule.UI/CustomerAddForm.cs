@@ -16,21 +16,23 @@ namespace OrderModule.UI
 {
     public partial class CustomerAddForm : Form
     {
-        public CustomerAddForm()
+        private int userId;
+        public CustomerAddForm(int userId)
         {
             InitializeComponent();
+            this.userId = userId;
             _customerService=new CustomerManager(new EFCustomerDal());
         }
         private ICustomerService _customerService;
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuForm menuForm = new MenuForm();
+            MenuForm menuForm = new MenuForm(userId);
             menuForm.Show();
         }
 
         private void ProductList_Click(object sender, EventArgs e)
         {
-            CustomerListForm customerListForm = new CustomerListForm();
+            CustomerListForm customerListForm = new CustomerListForm(userId);
             customerListForm.Show();
         }
 
@@ -52,13 +54,18 @@ namespace OrderModule.UI
                     Fax=tbxFax.Text,
                 });
                 MessageBox.Show("Müşteri eklendi.");
-                CustomerListForm customerListForm = new CustomerListForm();
+                CustomerListForm customerListForm = new CustomerListForm(userId);
                 customerListForm.Show();
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void CustomerAddForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -17,20 +17,22 @@ namespace OrderModule.UI
     public partial class EmployeeListForm : Form
     {
         private int _employeeId;
-        public EmployeeListForm()
+        private int _UserId;
+        public EmployeeListForm(int _userId)
         {
             InitializeComponent();
             _employeeService = new EmployeeManager(new EfEmployeeDal());
+            this._UserId= _userId;
         }
         private IEmployeeService _employeeService;
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuForm menuForm = new MenuForm();
+            MenuForm menuForm = new MenuForm(_UserId);
             menuForm.Show();
         }
         private void ProductAdd_Click(object sender, EventArgs e)
         {
-            EmployeeAddForm employeeAddForm = new EmployeeAddForm();
+            EmployeeAddForm employeeAddForm = new EmployeeAddForm(_UserId);
             employeeAddForm.Show();
         }
         private void ProductUpdate_Click(object sender, EventArgs e)
@@ -39,7 +41,7 @@ namespace OrderModule.UI
             {
                 if (_employeeId != 0)
                 {
-                    EmployeUpdateForm employeUpdateForm = new EmployeUpdateForm(_employeeId);
+                    EmployeUpdateForm employeUpdateForm = new EmployeUpdateForm(_UserId, _employeeId);
                     employeUpdateForm.Show();
                 }
                 else

@@ -16,21 +16,23 @@ namespace OrderModule.UI
 {
     public partial class EmployeeAddForm : Form
     {
-        public EmployeeAddForm()
+        private int userId;
+        public EmployeeAddForm(int _UserId)
         {
             InitializeComponent();
             _employeeService = new EmployeeManager(new EfEmployeeDal());
+            userId = _UserId;
         }
         private IEmployeeService _employeeService;
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuForm menuForm = new MenuForm();
+            MenuForm menuForm = new MenuForm(userId);
             menuForm.Show();
         }
 
         private void ProductList_Click(object sender, EventArgs e)
         {
-            EmployeeListForm  employeeListForm = new EmployeeListForm();
+            EmployeeListForm  employeeListForm = new EmployeeListForm(userId);
             employeeListForm.Show();
         }
 

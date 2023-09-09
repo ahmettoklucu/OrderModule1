@@ -17,23 +17,25 @@ namespace OrderModule.UI
     public partial class CustomerUpdateForm : Form
     {
         private string _customerId;
+        private int userId;
         private ICustomerService _customerService;
-        public CustomerUpdateForm(string customerId)
+        public CustomerUpdateForm(int userId, string customerId)
         {
             InitializeComponent();
+            this.userId=userId;
             _customerId = customerId;
             _customerService=new CustomerManager(new EFCustomerDal());
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuForm menuForm = new MenuForm();
+            MenuForm menuForm = new MenuForm(userId);
             menuForm.Show();
         }
 
         private void ProductList_Click(object sender, EventArgs e)
         {
-            CustomerListForm customerListForm = new CustomerListForm();
+            CustomerListForm customerListForm = new CustomerListForm(userId);
             customerListForm.Show();
         }
         public void LoadCustomer()
@@ -75,7 +77,7 @@ namespace OrderModule.UI
                     Phone=tbxPhone.Text,
                 });
                 MessageBox.Show("Müşteri Güncelleştirildi.");
-                CustomerListForm customerListForm = new CustomerListForm();
+                CustomerListForm customerListForm = new CustomerListForm(userId);
                 customerListForm.Show();
             }
             catch (Exception ex) 

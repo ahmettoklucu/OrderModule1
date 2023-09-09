@@ -1,6 +1,6 @@
 ﻿namespace OrderModule.UI
 {
-    partial class UsserUpdateForm
+    partial class UserUpdateForm
     {
         /// <summary>
         /// Required designer variable.

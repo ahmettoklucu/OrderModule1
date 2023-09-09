@@ -1,6 +1,7 @@
 ﻿using OrderModule.Bussiness.Abstract;
 using OrderModule.Bussiness.Concrete;
 using OrderModule.DataAccess.Concrete;
+using OrderModule.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,9 +16,11 @@ namespace OrderModule.UI
 {
     public partial class OrderUpdateForm : Form
     {
-        public OrderUpdateForm(int _orderId)
+        public OrderUpdateForm(int UserId, int _orderId1)
         {
             InitializeComponent();
+            userId = UserId;
+            _orderId= _orderId1;
             _orderService = new OrderManager(new EfOrderDal());
             _orderDetailService = new OrderDetailManager(new EfOrderDetailDal());
             _customerService = new CustomerManager(new EFCustomerDal());
@@ -28,6 +31,8 @@ namespace OrderModule.UI
         private IProductService _productService;
         private ICustomerService _customerService;
         private IEmployeeService _employeeService;
+        private int userId;
+        private int _orderId;
         private void LoadProduct()
         {
             cbxProduct.DataSource = _productService.GetAll();
@@ -48,13 +53,13 @@ namespace OrderModule.UI
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuForm menuForm = new MenuForm();
+            MenuForm menuForm = new MenuForm(userId);
             menuForm.Show();
         }
 
         private void ProductList_Click(object sender, EventArgs e)
         {
-            OrderListForm orderListForm = new OrderListForm();
+            OrderListForm orderListForm = new OrderListForm(userId);
             orderListForm.Show();
         }
 

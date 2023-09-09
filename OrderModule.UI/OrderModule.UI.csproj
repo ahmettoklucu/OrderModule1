@@ -42,6 +42,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="LoginScreen">
+      <HintPath>..\..\..\..\Desktop\InfoTechHR\LoginScreen\bin\Debug\LoginScreen.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -190,11 +193,11 @@
     <Compile Include="UserListForm.Designer.cs">
       <DependentUpon>UserListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UsserUpdateForm.cs">
+    <Compile Include="UserUpdateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UsserUpdateForm.Designer.cs">
-      <DependentUpon>UsserUpdateForm.cs</DependentUpon>
+    <Compile Include="UserUpdateForm.Designer.cs">
+      <DependentUpon>UserUpdateForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="CateforyAddForm.resx">
       <DependentUpon>CateforyAddForm.cs</DependentUpon>
@@ -222,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeUpdateForm.resx">
       <DependentUpon>EmployeUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>

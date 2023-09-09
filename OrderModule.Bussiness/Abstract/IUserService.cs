@@ -15,8 +15,8 @@ namespace OrderModule.Bussiness.Abstract
         void Add(User user,int userId,out string messege);
         void Update(User user, int userId, out string messege);
         void Delete(User user, int userId, out string messege);
-        bool EmailLogin(string Email,string password, out string Messege);
-        bool PhoneLogin(string Phone,string password, out string Messege);
-        bool UserNameLogin(string UserName, string password, out string Messege);
+        User EmailLogin(string Email,string password, out string Messege);
+        User PhoneLogin(string Phone,string password, out string Messege);
+        User UserNameLogin(string UserName, string password, out string Messege);
     }
 }

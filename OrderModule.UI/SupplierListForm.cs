@@ -16,13 +16,15 @@ namespace OrderModule.UI
 {
     public partial class SupplierListForm : Form
     {
-        public SupplierListForm()
+        public SupplierListForm(int userId)
         {
             InitializeComponent();
+            _userId = userId;
             _supplierService=new SupplierManager(new EfSupplierDal());
         }
         private ISupplierService _supplierService;
         private int SuppplierId;
+        private int _userId;
         public void LoadSupplier()
         {
             dgwProduct.DataSource = _supplierService.GetAll();
@@ -33,7 +35,7 @@ namespace OrderModule.UI
             {
                 if (SuppplierId != 0)
                 {
-                    SupplierUpdateForm form = new SupplierUpdateForm(SuppplierId);
+                    SupplierUpdateForm form = new SupplierUpdateForm(_userId, SuppplierId);
                     form.Show();
 
                 }
@@ -52,13 +54,13 @@ namespace OrderModule.UI
 
         private void ProductAdd_Click(object sender, EventArgs e)
         {
-            SupplierAddForm form = new SupplierAddForm();
+            SupplierAddForm form = new SupplierAddForm(_userId);
             form.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuForm menu = new MenuForm();
+            MenuForm menu = new MenuForm(_userId);
             menu.Show();
         }
 

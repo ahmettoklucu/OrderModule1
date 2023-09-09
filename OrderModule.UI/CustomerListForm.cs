@@ -15,9 +15,11 @@ namespace OrderModule.UI
 {
     public partial class CustomerListForm : Form
     {
-        public CustomerListForm()
+        private int userId;
+        public CustomerListForm(int userId)
         {
             InitializeComponent();
+            this.userId = userId;
             _customerService=new CustomerManager(new EFCustomerDal());
         }
         private ICustomerService _customerService;
@@ -28,13 +30,13 @@ namespace OrderModule.UI
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuForm menuForm = new MenuForm(); 
+            MenuForm menuForm = new MenuForm(userId); 
             menuForm.Show();
         }
 
         private void ProductAdd_Click(object sender, EventArgs e)
         {
-            CustomerAddForm customerAddForm = new CustomerAddForm();
+            CustomerAddForm customerAddForm = new CustomerAddForm(userId);
             customerAddForm.Show();
         }
 
@@ -44,7 +46,7 @@ namespace OrderModule.UI
             {
                 if (_customerId != null)
                 {
-                    CustomerUpdateForm categoryUpdateForm = new CustomerUpdateForm(_customerId);
+                    CustomerUpdateForm categoryUpdateForm = new CustomerUpdateForm(userId, _customerId);
                     categoryUpdateForm.Show();
 
                 }

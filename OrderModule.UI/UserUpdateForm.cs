@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace OrderModule.UI
 {
-    public partial class UsserUpdateForm : Form
+    public partial class UserUpdateForm : Form
     {
-        public UsserUpdateForm()
+        public UserUpdateForm()
         {
             InitializeComponent();
         }

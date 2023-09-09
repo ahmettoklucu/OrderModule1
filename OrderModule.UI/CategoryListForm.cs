@@ -16,22 +16,24 @@ namespace OrderModule.UI
 {
     public partial class CategoryListForm : Form
     {
-        public CategoryListForm()
+        private int userId;
+        public CategoryListForm(int _userId)
         {
             InitializeComponent();
+            this.userId = _userId;
             _categoryService=new CategoryManager(new EfCategoryDal());
         }
         private int _categoryId;
         private ICategoryService _categoryService;
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuForm menuForm = new MenuForm(); 
+            MenuForm menuForm = new MenuForm(userId); 
             menuForm.Show();
         }
 
         private void ProductAdd_Click(object sender, EventArgs e)
         {
-            CateforyAddForm cateforyAddForm = new CateforyAddForm();
+            CateforyAddForm cateforyAddForm = new CateforyAddForm(userId);
             cateforyAddForm.Show();
         }
 
@@ -41,7 +43,7 @@ namespace OrderModule.UI
             {
                 if (_categoryId != 0)
                 {
-                    CategoryUpdateForm categoryUpdateForm = new CategoryUpdateForm(_categoryId);
+                    CategoryUpdateForm categoryUpdateForm = new CategoryUpdateForm(userId, _categoryId);
                     categoryUpdateForm.Show();
 
                 }

@@ -17,18 +17,20 @@ namespace OrderModule.UI
     public partial class SupplierUpdateForm : Form
     {
         private int _supplierıd;
+        private int _userId;
         private ISupplierService _supplierService;
-        public SupplierUpdateForm(int suppplierId)
+        public SupplierUpdateForm(int userId, int suppplierId1)
         {
             InitializeComponent();
-            _supplierıd = suppplierId;
+            _userId = userId;
+            _supplierıd = suppplierId1;
             _supplierService = new SupplierManager(new EfSupplierDal());
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuForm menuForm = new MenuForm();
+            MenuForm menuForm = new MenuForm(_userId);
             menuForm.Show();
         }
 
