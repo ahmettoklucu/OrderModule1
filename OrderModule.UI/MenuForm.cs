@@ -1,4 +1,7 @@
-﻿using System;
+﻿using OrderModule.Bussiness.Abstract;
+using OrderModule.Bussiness.Concrete;
+using OrderModule.DataAccess.Concrete;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,10 +18,11 @@ namespace OrderModule.UI
         private int userId;
         public MenuForm(int ıd)
         {
+            _userService = new UserManager(new EfUserDal());
             InitializeComponent();
             userId = ıd;
         }
-
+        private IUserService _userService;
         private void button1_Click(object sender, EventArgs e)
         {
             OrderListForm orderListForm = new OrderListForm(userId);
@@ -49,9 +53,20 @@ namespace OrderModule.UI
             productListForm.Show();
         }
 
-        private void MenuForm_Load(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
         {
+            var user = _userService.Get(userId);
+            if (user.RoleId==1)
+            {
+                UserListForm userListForm = new UserListForm(userId);
+                userListForm.Show();
 
+            }
+            else
+            {
+                MessageBox.Show("Bu menuye girmek için yetkiniz bulunmamaktadır.");
+            }
+            
         }
     }
 }

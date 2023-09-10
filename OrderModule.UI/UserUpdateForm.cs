@@ -12,7 +12,7 @@ namespace OrderModule.UI
 {
     public partial class UserUpdateForm : Form
     {
-        public UserUpdateForm()
+        public UserUpdateForm(int _UserId, int _userId1)
         {
             InitializeComponent();
         }

@@ -12,7 +12,7 @@ namespace OrderModule.Bussiness.ValidationRules.FluentValidation
 {
     public class UserValidator : AbstractValidator<User>
     {
-        UserValidator()
+        public UserValidator()
         {
             RuleFor(p => p.Email).NotEmpty().WithMessage("Email adresi boş geçilemez.");
             RuleFor(p => p.UserName).NotEmpty().WithMessage("Kullanıcı ismi boş geçilemez.");

@@ -105,6 +105,7 @@
             this.button7.TabIndex = 6;
             this.button7.Text = "KULLANICILAR";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -130,7 +131,6 @@
             this.Controls.Add(this.button1);
             this.Name = "MenuForm";
             this.Text = "MenuForm";
-            this.Load += new System.EventHandler(this.MenuForm_Load);
             this.ResumeLayout(false);
 
         }

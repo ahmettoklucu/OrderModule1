@@ -2,6 +2,7 @@
 using OrderModule.Bussiness.Utilities;
 using OrderModule.Bussiness.ValidationRules.FluentValidation;
 using OrderModule.DataAccess.Abstract;
+using OrderModule.DataAccess.Concrete;
 using OrderModule.Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -49,35 +50,32 @@ namespace OrderModule.Bussiness.Concrete
             _userDal = userDal;
             
         }
-        public void Add(User user, int userId,out string messege)
+        public void Add(User user,out string mesaj)
         {
-            messege = "";
-            var User = _userDal.Get(p=>p.Id==userId);
-            if (User.RoleId == 1)
+            mesaj="";
+            if (_userDal.Get(p => p.UserName == user.UserName) != null)
             {
-                user.Password = ComputeSHA256Hash(user.Password);
-                _userDal.Add(user);
-                messege = "Yeni Kullanıcı eklendi.";
+                mesaj = "Kullanıcı adi sistemde kayıtlıdır.";
+            }
+            else if(_userDal.Get(p => p.Phone == user.Phone) != null)
+            {
+                mesaj = "Telefon numarası sistemde kayıtlıdır.";
+            }else if(_userDal.Get(p => p.Email == user.Email) != null)
+            {
+                mesaj = "EMail sistemde kayıtlıdır.";
             }
             else
             {
-                messege = "Kullanıcı eklemek için yetkiniz bulunmamaktadir.";
+                mesaj = "Kullanıcı ekleme işlemi başarili";
+                user.Password = ComputeSHA256Hash(user.Password);
+                ValidationTool.Validate(new UserValidator(), user);
+                _userDal.Add(user);
             }
         }
 
-        public void Delete(User user, int userId, out string messege)
+        public void Delete(User user)
         {
-            messege = "";
-            var User = _userDal.Get(p => p.Id == userId);
-            if (User.RoleId == 1)
-            {
-                _userDal.Delete(user);
-                messege = "Yeni Kullanıcı silindi.";
-            }
-            else
-            {
-                messege = "Kullanıcı silmek için yetkiniz bulunmamaktadir.";
-            }
+            _userDal.Delete(user);
         }
 
         public User Get(int UserId)
@@ -92,22 +90,30 @@ namespace OrderModule.Bussiness.Concrete
 
         public List<User> GetUserByUserName(string userName)
         {
-            return _userDal.GetAll(p=>p.Email.ToLower().Contains(userName.ToLower()));
+            return _userDal.GetAll(p=>p.UserName.ToLower().Contains(userName.ToLower()));
         }
 
-        public void Update(User user, int userId,out string messege)
+        public void Update(User user,out string mesaj)
         {
-            messege = "";
-            var User = _userDal.Get(p => p.Id == userId);
-            if (User.RoleId == 1)
+            mesaj = "";
+            if (_userDal.Get(p => p.UserName == user.UserName && p.Id != user.Id) != null)
             {
-                //ValidationTool.Validate(new SupplierValidator(), supplier);
-                _userDal.Update(user);
-                messege = "Yeni Kullanıcı güncellendi";
+                mesaj = "Kullanıcı adi sistemde kayıtlıdır.";
+            }
+            else if (_userDal.Get(p => p.Phone == user.Phone && p.Id != user.Id) != null)
+            {
+                mesaj = "Telefon numarası sistemde kayıtlıdır.";
+            }
+            else if (_userDal.Get(p => p.Email == user.Email && p.Id != user.Id) != null)
+            {
+                mesaj = "EMail sistemde kayıtlıdır.";
             }
             else
             {
-                messege = "Kullanıcı güncellemek için yetkiniz bulunmamaktadir.";
+                mesaj = "Kullanıcı ekleme işlemi başarili";
+                user.Password = ComputeSHA256Hash(user.Password);
+                ValidationTool.Validate(new UserValidator(), user);
+                _userDal.Update(user);
             }
         }
 
@@ -182,6 +188,16 @@ namespace OrderModule.Bussiness.Concrete
                 Messege = "Bu Kullanıcı ismi sistemde bulunmamaktadir.";
             }
             return User;
+        }
+
+        public List<User> GetUserByPhone(string Phone)
+        {
+            return _userDal.GetAll(p => p.Phone.ToLower().Contains(Phone.ToLower()));
+        }
+
+        public List<User> GetUserByEMail(string EMail)
+        {
+            return _userDal.GetAll(p => p.Email.ToLower().Contains(EMail.ToLower()));
         }
     }
 }

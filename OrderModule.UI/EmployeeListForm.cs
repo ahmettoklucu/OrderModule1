@@ -18,11 +18,11 @@ namespace OrderModule.UI
     {
         private int _employeeId;
         private int _UserId;
-        public EmployeeListForm(int _userId)
+        public EmployeeListForm(int userId)
         {
             InitializeComponent();
             _employeeService = new EmployeeManager(new EfEmployeeDal());
-            this._UserId= _userId;
+            _UserId= userId;
         }
         private IEmployeeService _employeeService;
         private void button1_Click(object sender, EventArgs e)
