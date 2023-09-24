@@ -18,7 +18,6 @@ namespace OrderModule.Bussiness.ValidationRules.FluentValidation
             RuleFor(p => p.UserName).NotEmpty().WithMessage("Kullanıcı ismi boş geçilemez.");
             RuleFor(p => p.Phone).NotEmpty().WithMessage("Telefon numarası boş geçilemez.");
             RuleFor(p => p.Password).NotEmpty().WithMessage("Şifre boş geçilemez.");
-            RuleFor(p => p.RoleId).NotEmpty().WithMessage("Role boş geçilemez.");
 
             RuleFor(p => p.Phone).Must(NumericControl).WithMessage("Telefon numarasi sayilardan oluşmalıdır.");
             RuleFor(p => p.Password).Must(PasswordControl).WithMessage("Şifre büyük harf,küçük harf,sayi ve özel karakter içermelidir.");
@@ -26,14 +25,13 @@ namespace OrderModule.Bussiness.ValidationRules.FluentValidation
 
 
             RuleFor(p => p.Password).MinimumLength(8).WithMessage("Şifre en az 8 karakterden oluşmalıdır.");
-            RuleFor(p => p.UserName).MinimumLength(15).WithMessage("Kullanıcı ismi en az 15 karakterden oluşmalıdır.");
-            RuleFor(p => p.UserName).MinimumLength(15).WithMessage("Kullanıcı ismi en az 15 karakterden oluşmalıdır.");
+            RuleFor(p => p.UserName).MaximumLength(15).WithMessage("Kullanıcı ismi en az 15 karakterden oluşmalıdır.");
 
-        }
+         }
         private bool NumericControl(string arg)
         {
             bool result = false;
-            Regex numericControl = new Regex("^(?=.*?[0-9]).{24,}$");
+            Regex numericControl = new Regex("^(?=.*?[0-9]).{11,}$");
             if (numericControl.IsMatch(arg) == true)
             {
                 result = true;
@@ -42,17 +40,10 @@ namespace OrderModule.Bussiness.ValidationRules.FluentValidation
         }
         public bool PasswordControl(string input)
         {
-            using (SHA256 sha256 = SHA256.Create())
-            {
                 bool result = false;
-                byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));
-                StringBuilder password = new StringBuilder();
-                for (int i = 0; i < hashBytes.Length; i++)
-                {
-                    password.Append(hashBytes[i].ToString("x2")); // hexadecimal formatta dönüştürülen hash değerlerini sonucunu oluştur
-                }
-                Regex PasswordControl = new Regex("^(?=.*?[A-ZÖÜİŞĞÇ])(?=.*?[a-zöüığşç])(?=.*?[0-9])(?=.*?[^a-zA-Z0-9ÖöÜüŞşıİĞğÇç]).{10,}$");
-                if (PasswordControl.IsMatch(password.ToString()) == true)
+
+                Regex PasswordControl = new Regex("^(?=.*?[A-ZÖÜİŞĞÇ])(?=.*?[a-zöüığşç])(?=.*?[0-9])(?=.*?[^a-zA-Z0-9ÖöÜüŞşıİĞğÇç]).{8,}$");
+                if (PasswordControl.IsMatch(input.ToString()) == true)
                 {
                     result = true;
                 }
@@ -61,7 +52,7 @@ namespace OrderModule.Bussiness.ValidationRules.FluentValidation
                     result = false;
                 }
                 return result;
-            }
+            
         }
     }
 }

@@ -41,6 +41,7 @@
             this.screenLogin1.TabIndex = 0;
             this.screenLogin1.Title = null;
             this.screenLogin1.OnChangeLoginType += new LoginScreen.RxOnChangeLoginType(this.screenLogin1_OnChangeLoginType);
+            this.screenLogin1.OnClickEnterButton += new LoginScreen.RxOnClickEnterButton(this.screenLogin1_OnClickEnterButton);
             // 
             // LoginForm
             // 

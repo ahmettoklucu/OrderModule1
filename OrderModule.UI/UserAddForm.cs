@@ -29,7 +29,7 @@ namespace OrderModule.UI
         {
             try
             {
-                string mesaj = null;
+                string mesaj;
                 if (tbxPassword.Text != tbxPasswordRepeat.Text)
                 {
                     MessageBox.Show("Paralolar bir biri ile uyuşmamaktadir.");
@@ -48,7 +48,7 @@ namespace OrderModule.UI
             }
             catch (Exception ex)
             {
-
+            
                 MessageBox.Show(ex.Message);
             }
         }
@@ -63,6 +63,11 @@ namespace OrderModule.UI
         {
             MenuForm menuForm = new MenuForm(_userId);
             menuForm.Show();
+        }
+
+        private void UserAddForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

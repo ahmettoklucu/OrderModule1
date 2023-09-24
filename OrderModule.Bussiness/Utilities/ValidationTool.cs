@@ -9,15 +9,13 @@ namespace OrderModule.Bussiness.Utilities
 {
     public static class ValidationTool
     {
-        public static void Validate(IValidator validator,object entity)
+        public static void Validate<T>(AbstractValidator<T> validator, T entity)
         {
-            var result = validator.Validate((IValidationContext)entity);
-            if (result.Errors.Count>0)
+            var result = validator.Validate(entity);
+            if (result.Errors.Count > 0)
             {
                 throw new ValidationException(result.Errors);
-
             }
-
         }
     }
 }

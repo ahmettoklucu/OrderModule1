@@ -23,13 +23,20 @@ namespace OrderModule.UI
             _userService=new UserManager(new EfUserDal());
         }
         private IUserService _userService;
-        private void screenLogin1_OnClickEnterButton(LoginScreen.TLoginType LoginType)
+
+        private void screenLogin1_OnChangeLoginType(LoginScreen.TLoginType LoginType)
+        {
+            this.LoginType = LoginType;
+           
+        }
+
+        private void screenLogin1_OnClickEnterButton()
         {
             string HataMesaji;
             if (LoginType == TLoginType.KullaniciAdi)
             {
 
-                var user= _userService.UserNameLogin(screenLogin1.KullaniciAdi, screenLogin1.Sifre,out HataMesaji);
+                var user = _userService.UserNameLogin(screenLogin1.KullaniciAdi, screenLogin1.Sifre, out HataMesaji);
                 if (user != null)
                 {
                     MessageBox.Show(HataMesaji);
@@ -40,7 +47,7 @@ namespace OrderModule.UI
                 {
                     MessageBox.Show(HataMesaji);
                 }
-                
+
             }
             else if (LoginType == TLoginType.Mail)
             {
@@ -70,13 +77,6 @@ namespace OrderModule.UI
                     MessageBox.Show(HataMesaji);
                 }
             }
-
-        }
-
-        private void screenLogin1_OnChangeLoginType(LoginScreen.TLoginType LoginType)
-        {
-            this.LoginType = LoginType;
-           
         }
     }
 }

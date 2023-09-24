@@ -19,6 +19,7 @@ namespace OrderModule.DataAccess.Concrete.Mappings
             Property(x => x.Phone).HasColumnName("Phone");
             Property(x=>x.Password).HasColumnName("Password");
             Property(x=>x.RoleId).HasColumnName("RoleId");
+            Property(x => x.Status).HasColumnName("Status");
         }
     }
 }

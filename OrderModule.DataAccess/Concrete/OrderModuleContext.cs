@@ -1,4 +1,5 @@
 ﻿using DevFreamwork.Northwind.DataAccess.Concrete.EntityFreamwork.Mappings;
+using OrderModule.DataAccess.Concrete.Mappings;
 using OrderModule.Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,7 @@ namespace OrderModule.DataAccess.Concrete
             modelBuilder.Configurations.Add(new ShipperMap());
             modelBuilder.Configurations.Add(new SupplierMap());
             modelBuilder.Configurations.Add(new TerritoryMap());
+            modelBuilder.Configurations.Add(new UserMap());
         }
     }
 }

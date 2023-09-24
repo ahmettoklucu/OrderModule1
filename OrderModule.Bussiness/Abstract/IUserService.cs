@@ -14,7 +14,7 @@ namespace OrderModule.Bussiness.Abstract
         List<User> GetUserByPhone(string Phone);
         List<User> GetUserByEMail(string EMail);
         User Get(int UserId);
-        void Add(User user,out string Mesaj);
+        void Add(User user, out string Mesaj);
         void Update(User user, out string Mesaj);
         void Delete(User user);
         User EmailLogin(string Email,string password, out string Messege);

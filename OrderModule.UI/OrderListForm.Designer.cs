@@ -32,8 +32,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.ProductUpdate = new System.Windows.Forms.Button();
             this.ProductAdd = new System.Windows.Forms.Button();
-            this.tbxProductName = new System.Windows.Forms.TextBox();
-            this.cbxCategory = new System.Windows.Forms.ComboBox();
             this.dgwProduct = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).BeginInit();
             this.SuspendLayout();
@@ -78,21 +76,6 @@
             this.ProductAdd.UseVisualStyleBackColor = true;
             this.ProductAdd.Click += new System.EventHandler(this.ProductAdd_Click);
             // 
-            // tbxProductName
-            // 
-            this.tbxProductName.Location = new System.Drawing.Point(596, 12);
-            this.tbxProductName.Name = "tbxProductName";
-            this.tbxProductName.Size = new System.Drawing.Size(129, 20);
-            this.tbxProductName.TabIndex = 23;
-            // 
-            // cbxCategory
-            // 
-            this.cbxCategory.FormattingEnabled = true;
-            this.cbxCategory.Location = new System.Drawing.Point(785, 11);
-            this.cbxCategory.Name = "cbxCategory";
-            this.cbxCategory.Size = new System.Drawing.Size(121, 21);
-            this.cbxCategory.TabIndex = 22;
-            // 
             // dgwProduct
             // 
             this.dgwProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -110,15 +93,12 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ProductUpdate);
             this.Controls.Add(this.ProductAdd);
-            this.Controls.Add(this.tbxProductName);
-            this.Controls.Add(this.cbxCategory);
             this.Controls.Add(this.dgwProduct);
             this.Name = "OrderListForm";
             this.Text = "OrderListForm";
             this.Load += new System.EventHandler(this.OrderListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwProduct)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -128,8 +108,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button ProductUpdate;
         private System.Windows.Forms.Button ProductAdd;
-        private System.Windows.Forms.TextBox tbxProductName;
-        private System.Windows.Forms.ComboBox cbxCategory;
         private System.Windows.Forms.DataGridView dgwProduct;
     }
 }

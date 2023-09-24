@@ -53,7 +53,8 @@ namespace OrderModule.Bussiness.Concrete
         public void Add(User user,out string mesaj)
         {
             mesaj="";
-            if (_userDal.Get(p => p.UserName == user.UserName) != null)
+            var UserName = _userDal.Get(p => p.UserName == user.UserName);
+            if (UserName != null)
             {
                 mesaj = "Kullanıcı adi sistemde kayıtlıdır.";
             }
@@ -66,10 +67,11 @@ namespace OrderModule.Bussiness.Concrete
             }
             else
             {
-                mesaj = "Kullanıcı ekleme işlemi başarili";
-                user.Password = ComputeSHA256Hash(user.Password);
+                
                 ValidationTool.Validate(new UserValidator(), user);
+                user.Password = ComputeSHA256Hash(user.Password);
                 _userDal.Add(user);
+                mesaj = "Kullanıcı ekleme işlemi başarili";
             }
         }
 
@@ -111,8 +113,8 @@ namespace OrderModule.Bussiness.Concrete
             else
             {
                 mesaj = "Kullanıcı ekleme işlemi başarili";
-                user.Password = ComputeSHA256Hash(user.Password);
                 ValidationTool.Validate(new UserValidator(), user);
+                user.Password = ComputeSHA256Hash(user.Password);
                 _userDal.Update(user);
             }
         }
