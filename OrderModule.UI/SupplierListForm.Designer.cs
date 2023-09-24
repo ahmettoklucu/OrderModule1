@@ -90,6 +90,7 @@
             this.dgwProduct.Name = "dgwProduct";
             this.dgwProduct.Size = new System.Drawing.Size(894, 387);
             this.dgwProduct.TabIndex = 6;
+            this.dgwProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwProduct_CellClick);
             // 
             // btnDelete
             // 

@@ -17,11 +17,12 @@ namespace OrderModule.UI
     public partial class ProductUpdateForm : Form
     {
         private int _product;
-        private int userId;
-        public ProductUpdateForm(int product, int _product)
+        private int _userId;
+        public ProductUpdateForm(int userId, int product)
         {
             InitializeComponent();
             _product = product;
+            _userId = userId;
             _categoryService = new CategoryManager(new EfCategoryDal());
             _supplierService = new SupplierManager(new EfSupplierDal());
             _productService = new ProductManager(new EfProductDal());
@@ -54,14 +55,14 @@ namespace OrderModule.UI
         }
         private void ProductList_Click(object sender, EventArgs e)
         {
-            ProductListForm productListForm = new ProductListForm(userId);
+            ProductListForm productListForm = new ProductListForm(_userId);
 
             productListForm.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuForm menuForm = new MenuForm(userId);
+            MenuForm menuForm = new MenuForm(_userId);
             menuForm.Show();
         }
 
@@ -74,13 +75,13 @@ namespace OrderModule.UI
 
         private void SupplierAdd_Click(object sender, EventArgs e)
         {
-            SupplierAddForm supplierAddForm = new SupplierAddForm(userId);
+            SupplierAddForm supplierAddForm = new SupplierAddForm(_userId);
             supplierAddForm.Show();
         }
 
         private void CategoryAdd_Click(object sender, EventArgs e)
         {
-            CateforyAddForm cateforyAddForm = new CateforyAddForm(userId);
+            CateforyAddForm cateforyAddForm = new CateforyAddForm(_userId);
             cateforyAddForm.Show();
         }
 
@@ -100,7 +101,7 @@ namespace OrderModule.UI
 
                 });
                 MessageBox.Show("Ürün güncelleştirildi.");
-                ProductListForm productListForm = new ProductListForm(userId);
+                ProductListForm productListForm = new ProductListForm(_userId);
                 productListForm.Show();
             }
             catch (Exception ex)

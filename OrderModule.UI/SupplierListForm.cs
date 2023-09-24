@@ -90,5 +90,10 @@ namespace OrderModule.UI
             }
            
         }
+
+        private void dgwProduct_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SuppplierId = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value.ToString());
+        }
     }
 }
