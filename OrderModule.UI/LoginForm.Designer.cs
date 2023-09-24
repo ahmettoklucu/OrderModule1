@@ -42,6 +42,7 @@
             this.screenLogin1.Title = null;
             this.screenLogin1.OnChangeLoginType += new LoginScreen.RxOnChangeLoginType(this.screenLogin1_OnChangeLoginType);
             this.screenLogin1.OnClickEnterButton += new LoginScreen.RxOnClickEnterButton(this.screenLogin1_OnClickEnterButton);
+            this.screenLogin1.Load += new System.EventHandler(this.screenLogin1_Load);
             // 
             // LoginForm
             // 

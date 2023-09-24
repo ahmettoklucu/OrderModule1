@@ -32,7 +32,6 @@ namespace OrderModule.UI
             MenuForm menuForm = new MenuForm(userId);
             menuForm.Show();
         }
-
         private void ProductAdd_Click(object sender, EventArgs e)
         {
             OrderAddForm orderAddForm = new OrderAddForm(userId);
@@ -55,12 +54,12 @@ namespace OrderModule.UI
                 if (_orderId != 0)
                 {
                     var DeletedOrder = _orderService.Get(_orderId);
-                    _orderService.Delete(DeletedOrder);
-                    var DeletedOrderDetail = _orderDetailService.SingleOrderOrderDetail(_orderId);
+                    var DeletedOrderDetail = _orderDetailService.SingleOrderDetail(_orderId);
                     foreach (var item in DeletedOrderDetail)
                     {
                         _orderDetailService.Delete(item);
                     }
+                    _orderService.Delete(DeletedOrder);
                     MessageBox.Show("Sipariş Silindi.");
                     LoadOrder();
                 }
@@ -75,15 +74,17 @@ namespace OrderModule.UI
             }
         }
 
-        private void dgwProduct_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            _orderId = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value.ToString());
-        }
+       
 
         private void ProductUpdate_Click(object sender, EventArgs e)
         {
             OrderUpdateForm form = new OrderUpdateForm(userId, _orderId);
             form.Show();
+        }
+
+        private void dgwProduct_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            _orderId = Convert.ToInt32(dgwProduct.CurrentRow.Cells[0].Value.ToString());
         }
     }
 }

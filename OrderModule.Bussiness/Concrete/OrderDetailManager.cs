@@ -34,7 +34,7 @@ namespace OrderModule.Bussiness.Concrete
             return _orderDetailDal.GetAll();
         }
 
-        public List<OrderDetail> SingleOrderOrderDetail(int orderId)
+        public List<OrderDetail> SingleOrderDetail(int orderId)
         {
            return _orderDetailDal.GetAll(p=>p.OrderID== orderId);
         }

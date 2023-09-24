@@ -12,7 +12,7 @@ namespace DevFreamwork.Northwind.DataAccess.Concrete.EntityFreamwork.Mappings
     {
         public OrderDetailMap()
         {
-            ToTable(@"Order Details", "dbo");
+            ToTable(@"OrderDetails", "dbo");
             HasKey(x => x.OrderID);
             HasKey(x => x.ProductID);
             Property(x => x.ProductID).HasColumnName("ProductID");

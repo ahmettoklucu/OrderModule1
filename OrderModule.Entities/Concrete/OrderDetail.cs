@@ -16,7 +16,7 @@ namespace OrderModule.Entities.Concrete
         [Key]
         public int ProductID { get; set; }
         public decimal UnitPrice { get; set; }
-        public int Quantity { get; set; }
+        public int? Quantity { get; set; }
         public bool Discount { get; set; }
         public int? Saved { get; set; }
         public DateTime? SavedDate { get; set; }

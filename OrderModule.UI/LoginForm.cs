@@ -33,10 +33,9 @@ namespace OrderModule.UI
         private void screenLogin1_OnClickEnterButton()
         {
             string HataMesaji;
-            if (LoginType == TLoginType.KullaniciAdi)
+            if (LoginType == TLoginType.Gsm)
             {
-
-                var user = _userService.UserNameLogin(screenLogin1.KullaniciAdi, screenLogin1.Sifre, out HataMesaji);
+                var user = _userService.PhoneLogin(screenLogin1.Phone, screenLogin1.Sifre, out HataMesaji);
                 if (user != null)
                 {
                     MessageBox.Show(HataMesaji);
@@ -47,6 +46,7 @@ namespace OrderModule.UI
                 {
                     MessageBox.Show(HataMesaji);
                 }
+                
 
             }
             else if (LoginType == TLoginType.Mail)
@@ -65,7 +65,7 @@ namespace OrderModule.UI
             }
             else
             {
-                var user = _userService.PhoneLogin(screenLogin1.Phone, screenLogin1.Sifre, out HataMesaji);
+                var user = _userService.UserNameLogin(screenLogin1.KullaniciAdi, screenLogin1.Sifre, out HataMesaji);
                 if (user != null)
                 {
                     MessageBox.Show(HataMesaji);
@@ -77,6 +77,11 @@ namespace OrderModule.UI
                     MessageBox.Show(HataMesaji);
                 }
             }
+        }
+
+        private void screenLogin1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -10,7 +10,7 @@ namespace OrderModule.Bussiness.Abstract
     public interface IOrderDetailService
     {
         List<OrderDetail> GetAll();
-        List<OrderDetail> SingleOrderOrderDetail(int orderId);
+        List<OrderDetail> SingleOrderDetail(int orderId);
         void Add(OrderDetail orderDetail);
         void Update(OrderDetail orderDetail);
         void Delete(OrderDetail orderDetail);
