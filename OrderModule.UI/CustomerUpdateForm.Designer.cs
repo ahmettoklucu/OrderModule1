@@ -51,7 +51,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.ProductList = new System.Windows.Forms.Button();
             this.ProductAdded = new System.Windows.Forms.Button();
-            this.CustomerId = new System.Windows.Forms.TextBox();
+            this.tbxCustomerId = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -245,12 +245,12 @@
             this.ProductAdded.UseVisualStyleBackColor = true;
             this.ProductAdded.Click += new System.EventHandler(this.ProductAdded_Click);
             // 
-            // CustomerId
+            // tbxCustomerId
             // 
-            this.CustomerId.Location = new System.Drawing.Point(128, 9);
-            this.CustomerId.Name = "CustomerId";
-            this.CustomerId.Size = new System.Drawing.Size(120, 20);
-            this.CustomerId.TabIndex = 84;
+            this.tbxCustomerId.Location = new System.Drawing.Point(128, 9);
+            this.tbxCustomerId.Name = "tbxCustomerId";
+            this.tbxCustomerId.Size = new System.Drawing.Size(120, 20);
+            this.tbxCustomerId.TabIndex = 84;
             // 
             // label11
             // 
@@ -267,7 +267,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(278, 452);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.CustomerId);
+            this.Controls.Add(this.tbxCustomerId);
             this.Controls.Add(this.tbxFax);
             this.Controls.Add(this.tbxPhone);
             this.Controls.Add(this.label10);
@@ -324,7 +324,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button ProductList;
         private System.Windows.Forms.Button ProductAdded;
-        private System.Windows.Forms.TextBox CustomerId;
+        private System.Windows.Forms.TextBox tbxCustomerId;
         private System.Windows.Forms.Label label11;
     }
 }

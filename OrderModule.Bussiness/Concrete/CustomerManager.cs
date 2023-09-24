@@ -14,9 +14,15 @@ namespace OrderModule.Bussiness.Concrete
     public class CustomerManager : ICustomerService
     {
         private ICustomerDal _customerDal;
-        public CustomerManager(ICustomerDal customerDal)
+        private ICustomerCustomerDemoDal _customerDemographicDemographicDemographic;
+        private IOrderDal _orderDal;
+        private IOrderDetailDal _orderDetailDal;
+        public CustomerManager(ICustomerDal customerDal, ICustomerCustomerDemoDal customerDemographicDemographicDemographic, IOrderDal orderDal, IOrderDetailDal orderDetailDal)
         {
             _customerDal = customerDal;
+            _customerDemographicDemographicDemographic = customerDemographicDemographicDemographic;
+            _orderDal = orderDal;
+            _orderDetailDal = orderDetailDal;
         }
 
         public void Add(Customer customer)
@@ -27,7 +33,22 @@ namespace OrderModule.Bussiness.Concrete
 
         public void Delete(Customer customer)
         {
-
+            var orders=_orderDal.GetAll(p=>p.CustomerID == customer.CustomerID);
+            foreach (var order in orders)
+            {
+                var orderDetails = _orderDetailDal.GetAll(p => p.OrderID == order.OrderID);
+                foreach(var orderDetail in orderDetails)
+                {
+                    _orderDetailDal.Delete(orderDetail);
+                }
+                _orderDal.Delete(order);
+            }
+            
+            var customerDemographicDemographicDemographic = _customerDemographicDemographicDemographic.GetAll(p => p.CustomerID == customer.CustomerID);
+            foreach (var item in customerDemographicDemographicDemographic)
+            {
+                _customerDemographicDemographicDemographic.Delete(item);
+            }
             _customerDal.Delete(customer);
         }
 

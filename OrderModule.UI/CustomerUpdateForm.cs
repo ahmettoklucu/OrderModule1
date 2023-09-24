@@ -24,7 +24,7 @@ namespace OrderModule.UI
             InitializeComponent();
             _userId = userId;
             _customerId = customerId;
-            _customerService=new CustomerManager(new EFCustomerDal());
+            _customerService=new CustomerManager(new EFCustomerDal(), new EfCustomerCustomerDemoDal(), new EfOrderDal(), new EfOrderDetailDal());
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,6 +41,7 @@ namespace OrderModule.UI
         public void LoadCustomer()
         {
             var UpdateCustomer = _customerService.Get(_customerId);
+            tbxCustomerId.Text = UpdateCustomer.CustomerID;
             tbxCompanyName.Text = UpdateCustomer.CompanyName;
             tbxContactName.Text = UpdateCustomer.ContactName;
             tbxContactTitle.Text = UpdateCustomer.ContactTitle;
@@ -51,6 +52,8 @@ namespace OrderModule.UI
             tbxRegion.Text = UpdateCustomer.Region;
             tbxPostalCode.Text = UpdateCustomer.PostalCode;
             tbxPhone.Text = UpdateCustomer.Phone;
+            tbxRegion.Text=UpdateCustomer.Region;
+            
         }
 
         private void CustomerUpdateForm_Load(object sender, EventArgs e)
@@ -62,25 +65,37 @@ namespace OrderModule.UI
         {
             try
             {
-                _customerService.Update(new Customer
+                var UpdateCustomer = _customerService.Get(_customerId);
+                if (_customerService.Get(tbxCustomerId.Text) == null)
                 {
-                    CustomerID = _customerId,
-                    CompanyName=tbxCompanyName.Text,
-                    ContactName=tbxContactName.Text,    
-                    ContactTitle=tbxContactTitle.Text,
-                    Country=tbxCountry.Text,
-                    Fax=tbxFax.Text,
-                    Address=tbxAddress.Text,
-                    City=tbxCity.Text,
-                    Region=tbxRegion.Text,
-                    PostalCode=tbxPostalCode.Text,
-                    Phone=tbxPhone.Text,
-                    Updated = _userId,
-                    UpdatedDate = DateTime.Now,
-                });
-                MessageBox.Show("Müşteri Güncelleştirildi.");
-                CustomerListForm customerListForm = new CustomerListForm(_userId);
-                customerListForm.Show();
+                    _customerService.Update(new Customer
+                    {
+                        CustomerID = _customerId,
+                        CompanyName = tbxCompanyName.Text,
+                        ContactName = tbxContactName.Text,
+                        ContactTitle = tbxContactTitle.Text,
+                        Country = tbxCountry.Text,
+                        Fax = tbxFax.Text,
+                        Address = tbxAddress.Text,
+                        City = tbxCity.Text,
+                        Region = tbxRegion.Text,
+                        PostalCode = tbxPostalCode.Text,
+                        Phone = tbxPhone.Text,
+                        Saved = UpdateCustomer.Saved,
+                        SavedDate = UpdateCustomer.SavedDate,
+                        Updated = _userId,
+                        UpdatedDate = DateTime.Now,
+
+                    });
+                    MessageBox.Show("Müşteri Güncelleştirildi.");
+                    CustomerListForm customerListForm = new CustomerListForm(_userId);
+                    customerListForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Müşteri Kodu mevcuttur.");
+                }
+               
             }
             catch (Exception ex) 
             {

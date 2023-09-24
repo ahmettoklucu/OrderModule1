@@ -12,7 +12,7 @@ namespace OrderModule.Entities.Concrete
     public class CustomerCustomerDemo : IEntity
     {
         [Key]
-        public int CustomerID { get; set; }
+        public string CustomerID { get; set; }
         [Key]
         public string CustomerTypeID { get; set; }
 

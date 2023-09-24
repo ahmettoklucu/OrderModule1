@@ -293,7 +293,6 @@
             this.Controls.Add(this.ProductAdded);
             this.Name = "CustomerAddForm";
             this.Text = "CustomerAddForm";
-            this.Load += new System.EventHandler(this.CustomerAddForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

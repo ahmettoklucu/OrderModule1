@@ -22,7 +22,7 @@ namespace OrderModule.UI
             this.userId = userId;
             _orderService=new OrderManager(new EfOrderDal());
             _orderDetailService=new OrderDetailManager(new EfOrderDetailDal());
-            _customerService=new CustomerManager(new EFCustomerDal());
+            _customerService=new CustomerManager(new EFCustomerDal(), new EfCustomerCustomerDemoDal(), new EfOrderDal(), new EfOrderDetailDal());
             _employeeService=new EmployeeManager(new EfEmployeeDal(), new EfEmployeeTerritoryDal(), new EfOrderDetailDal(), new EfOrderDal());
             _productService=new ProductManager(new EfProductDal());
         }

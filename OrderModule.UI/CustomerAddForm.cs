@@ -21,7 +21,7 @@ namespace OrderModule.UI
         {
             InitializeComponent();
             _userId = userId;
-            _customerService=new CustomerManager(new EFCustomerDal());
+            _customerService=new CustomerManager(new EFCustomerDal(), new EfCustomerCustomerDemoDal(), new EfOrderDal(), new EfOrderDetailDal());
         }
         private ICustomerService _customerService;
         private void button1_Click(object sender, EventArgs e)
@@ -40,36 +40,40 @@ namespace OrderModule.UI
         {
             try
             {
-                _customerService.Add(new Customer
+                if(_customerService.Get(CustomerId.Text) == null) 
                 {
-                    ContactName=tbxContactName.Text,
-                    CompanyName=tbxCompanyName.Text,
-                    ContactTitle=tbxContactTitle.Text,
-                    Address=tbxAddress.Text,
-                    City=tbxCity.Text,
-                    Region=tbxRegion.Text,
-                    PostalCode=tbxPostalCode.Text,
-                    Country=tbxCity.Text,
-                    Phone=tbxPhone.Text,
-                    Fax=tbxFax.Text,
-                    Saved = _userId,
-                    SavedDate = DateTime.Now,
-                    Updated = _userId,
-                    UpdatedDate = DateTime.Now,
-                });
-                MessageBox.Show("Müşteri eklendi.");
-                CustomerListForm customerListForm = new CustomerListForm(_userId);
-                customerListForm.Show();
+                    _customerService.Add(new Customer
+                    {
+                        CustomerID = CustomerId.Text,
+                        ContactName = tbxContactName.Text,
+                        CompanyName = tbxCompanyName.Text,
+                        ContactTitle = tbxContactTitle.Text,
+                        Address = tbxAddress.Text,
+                        City = tbxCity.Text,
+                        Region = tbxRegion.Text,
+                        PostalCode = tbxPostalCode.Text,
+                        Country = tbxCity.Text,
+                        Phone = tbxPhone.Text,
+                        Fax = tbxFax.Text,
+                        Saved = _userId,
+                        SavedDate = DateTime.Now,
+                        Updated = _userId,
+                        UpdatedDate = DateTime.Now,
+                    });
+                    MessageBox.Show("Müşteri eklendi.");
+                    CustomerListForm customerListForm = new CustomerListForm(_userId);
+                    customerListForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Müşteri Kodu mevcuttur.");
+                }
+               
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void CustomerAddForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

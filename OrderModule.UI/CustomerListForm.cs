@@ -20,7 +20,7 @@ namespace OrderModule.UI
         {
             InitializeComponent();
             this.userId = userId;
-            _customerService=new CustomerManager(new EFCustomerDal());
+            _customerService=new CustomerManager(new EFCustomerDal(),new EfCustomerCustomerDemoDal(),new EfOrderDal(),new EfOrderDetailDal());
         }
         private ICustomerService _customerService;
         private string _customerId;
