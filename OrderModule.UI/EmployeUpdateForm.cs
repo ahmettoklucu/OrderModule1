@@ -23,7 +23,7 @@ namespace OrderModule.UI
             InitializeComponent();
             _userId = userId;
             _employeeId = employeeId;
-            _employeeService=new EmployeeManager(new EfEmployeeDal());
+            _employeeService=new EmployeeManager(new EfEmployeeDal(), new EfEmployeeTerritoryDal(), new EfOrderDetailDal(), new EfOrderDal());
         }
         private IEmployeeService _employeeService;
         private void button1_Click(object sender, EventArgs e)
@@ -46,6 +46,9 @@ namespace OrderModule.UI
             tbxTitleOfCourtesy.Text = UpdateEmployee.TitleOfCourtesy;
             tbxAddress.Text = UpdateEmployee.Address;
             tbxCity.Text = UpdateEmployee.City;
+            tbxCountry.Text = UpdateEmployee.Country;
+            tbxRegion.Text = UpdateEmployee.Region;
+            tbxPhone.Text = UpdateEmployee.HomePhone;
         }
         private void EmployeUpdateForm_Load(object sender, EventArgs e)
         {
@@ -55,6 +58,7 @@ namespace OrderModule.UI
         {
             try
             {
+                var UpdateEmployee = _employeeService.Get(_employeeId);
                 _employeeService.Update(new Employee
                 {
                     EmployeeID = _employeeId,
@@ -65,6 +69,11 @@ namespace OrderModule.UI
                     Address=tbxAddress.Text,
                     City=tbxCity.Text,
                     TitleOfCourtesy=tbxTitleOfCourtesy.Text,
+                    Region=tbxRegion.Text,
+                    Country=tbxCountry.Text,
+                    HomePhone=tbxPhone.Text,
+                    Saved=UpdateEmployee.Saved,
+                    SavedDate=UpdateEmployee.SavedDate,
                     Updated = _userId,
                     UpdatedDate = DateTime.Now,
 

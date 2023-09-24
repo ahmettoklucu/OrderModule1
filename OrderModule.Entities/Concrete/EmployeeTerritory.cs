@@ -14,7 +14,7 @@ namespace OrderModule.Entities.Concrete
         [Key]
         public int EmployeeID { get; set; }
         [Key]
-        public int TerritoryID { get; set; }
+        public string TerritoryID { get; set; }
        
     }
 }

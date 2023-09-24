@@ -31,9 +31,9 @@ namespace OrderModule.Bussiness.ValidationRules.FluentValidation
             RuleFor(p => p.Address).MaximumLength(60).WithMessage("Adres 60 karakterden uzun olamaz.");
             RuleFor(p => p.City).MaximumLength(15).WithMessage("Şehir 15 karakterden uzun olamaz.");
             RuleFor(p => p.Region).MaximumLength(15).WithMessage("Bölge 15 karakterden uzun olamaz.");
-            RuleFor(p => p.PostalCode).MaximumLength(10).WithMessage("Posta kodu 10 karakterden uzun olamaz.");
+            RuleFor(p => p.PostalCode).MinimumLength(5).WithMessage("Posta kodu 5 karakterden uzun olamaz.");
             RuleFor(p => p.Country).MaximumLength(15).WithMessage("Ülke 15 karakterden uzun olamaz.");
-            RuleFor(p => p.HomePhone).MaximumLength(24).WithMessage("Ev telefon numarası 24 karakterden uzun olamaz.");
+            RuleFor(p => p.HomePhone).MaximumLength(12).WithMessage("Ev telefon numarası 12 karakterden uzun olamaz.");
 
             RuleFor(p => p.HomePhone).Must(NumericControl).WithMessage("Telefon Numarasi sayilardan oluşmalıdır.");
             RuleFor(p => p.PostalCode).Must(NumericControl).WithMessage("Posta Numarasi sayilardan oluşmalıdır.");
@@ -43,7 +43,7 @@ namespace OrderModule.Bussiness.ValidationRules.FluentValidation
         private bool NumericControl(string arg)
         {
             bool result = false;
-            Regex numericControl = new Regex("^(?=.*?[0-9]).{24,}$");
+            Regex numericControl = new Regex("^(?=.*?[0-9]).{6,}$");
             if (numericControl.IsMatch(arg) == true)
             {
                 result = true;

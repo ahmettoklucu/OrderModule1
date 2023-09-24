@@ -14,9 +14,16 @@ namespace OrderModule.Bussiness.Concrete
     public class EmployeeManager : IEmployeeService
     {
         private IEmployeeDal _employeeDal;
-        public EmployeeManager(IEmployeeDal employeeDal)
+        private IEmployeeTerritoryDal _employeeTerritory;
+        private IOrderDal _orderDal;
+        private IOrderDetailDal _orderDetailDal;
+        public EmployeeManager(IEmployeeDal employeeDal, IEmployeeTerritoryDal employeeTerritoryDal, IOrderDetailDal orderDetailDal,IOrderDal orderDal)
         {
             _employeeDal = employeeDal;
+            _employeeTerritory = employeeTerritoryDal;
+            _orderDetailDal = orderDetailDal;
+            _orderDal = orderDal;
+
         }
         public void Add(Employee employee)
         {
@@ -26,7 +33,22 @@ namespace OrderModule.Bussiness.Concrete
 
         public void Delete(Employee employee)
         {
-           _employeeDal.Delete(employee);
+            var employeeTerries= _employeeTerritory.GetAll(p=>p.EmployeeID==employee.EmployeeID);
+            var order = _orderDal.GetAll(p => p.EmployeeID == employee.EmployeeID);
+            foreach (var item in order)
+            {
+                var orderDetail = _orderDetailDal.GetAll(p => p.OrderID == item.OrderID);
+                foreach (var item1 in orderDetail)
+                {
+                    _orderDetailDal.Delete(item1);
+                }
+                _orderDal.Delete(item);
+            }
+            foreach (var item2 in employeeTerries)
+            {
+                _employeeTerritory.Delete(item2);
+            }
+            _employeeDal.Delete(employee);
         }
 
         public Employee Get(int EmployeeId)

@@ -20,7 +20,7 @@ namespace OrderModule.UI
         public EmployeeAddForm(int UserId)
         {
             InitializeComponent();
-            _employeeService = new EmployeeManager(new EfEmployeeDal());
+            _employeeService = new EmployeeManager(new EfEmployeeDal(),new EfEmployeeTerritoryDal(),new EfOrderDetailDal(),new EfOrderDal());
             _userId = UserId;
         }
         private IEmployeeService _employeeService;
@@ -49,10 +49,13 @@ namespace OrderModule.UI
                     City = tbxCity.Text,
                     PostalCode = tbxPostalCode.Text,
                     TitleOfCourtesy = tbxTitleOfCourtesy.Text,
+                    Country=tbxCountry.Text,
+                    Region = tbxRegion.Text,
                     Saved = _userId,
                     SavedDate = DateTime.Now,
                     Updated = _userId,
                     UpdatedDate = DateTime.Now,
+                    HomePhone=tbxPhone.Text,
 
                 });
                 MessageBox.Show("İşçi eklendi.");

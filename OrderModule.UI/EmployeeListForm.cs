@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,7 +22,7 @@ namespace OrderModule.UI
         public EmployeeListForm(int userId)
         {
             InitializeComponent();
-            _employeeService = new EmployeeManager(new EfEmployeeDal());
+            _employeeService = new EmployeeManager(new EfEmployeeDal(),new EfEmployeeTerritoryDal(), new EfOrderDetailDal(),new EfOrderDal());
             _UserId= userId;
         }
         private IEmployeeService _employeeService;
@@ -92,23 +93,6 @@ namespace OrderModule.UI
            
         }
 
-        private void tbxProductName_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (String.IsNullOrEmpty(tbxProductName.Text))
-                {
-                    dgwProduct.DataSource = _employeeService.GetEmployeeByEmployeerName(tbxProductName.Text);
-                }
-                else
-                {
-                    LoadUmployee();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+    
     }
 }

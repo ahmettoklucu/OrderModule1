@@ -24,7 +24,7 @@ namespace OrderModule.UI
             _orderService = new OrderManager(new EfOrderDal());
             _orderDetailService = new OrderDetailManager(new EfOrderDetailDal());
             _customerService = new CustomerManager(new EFCustomerDal());
-            _employeeService = new EmployeeManager(new EfEmployeeDal());
+            _employeeService = new EmployeeManager(new EfEmployeeDal(), new EfEmployeeTerritoryDal(), new EfOrderDetailDal(), new EfOrderDal());
             _productService=new ProductManager(new EfProductDal());
         }
         private IOrderService _orderService;
