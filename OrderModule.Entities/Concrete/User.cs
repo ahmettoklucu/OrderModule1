@@ -19,7 +19,5 @@ namespace OrderModule.Entities.Concrete
         public string Phone { get; set; }
         public int RoleId { get; set; }
         public int Status { get; set; }
-        [ForeignKey("RoleId")]
-        public Role Role { get; set; }
     }
 }

@@ -89,6 +89,8 @@ namespace OrderModule.UI
         {
             try
             {
+
+                var UpdatedProduct = _productService.Get(_product);
                 _productService.Update(new Product
                 {
                     ProductID = _product,
@@ -98,8 +100,13 @@ namespace OrderModule.UI
                     UnitsInStock = Convert.ToInt16(nmrUnitInStock.Value),
                     UnitPrice = Convert.ToDecimal(nmrUnitInStock.Value),
                     SupplierID = Convert.ToInt32(cbxSupplier.SelectedValue),
+                    Saved = UpdatedProduct.Saved,
+                    SavedDate = UpdatedProduct.SavedDate,
+                    Updated = _userId,
+                    UpdatedDate=DateTime.Now,
 
                 });
+                
                 MessageBox.Show("Ürün güncelleştirildi.");
                 ProductListForm productListForm = new ProductListForm(_userId);
                 productListForm.Show();

@@ -176,7 +176,6 @@
             this.Controls.Add(this.label1);
             this.Name = "UserAddForm";
             this.Text = "UserAddForm";
-            this.Load += new System.EventHandler(this.UserAddForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -70,6 +70,7 @@ namespace OrderModule.Bussiness.Concrete
                 
                 ValidationTool.Validate(new UserValidator(), user);
                 user.Password = ComputeSHA256Hash(user.Password);
+                user.RoleId = 2;
                 _userDal.Add(user);
                 mesaj = "Kullanıcı ekleme işlemi başarili";
             }

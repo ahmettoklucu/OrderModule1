@@ -64,10 +64,5 @@ namespace OrderModule.UI
             MenuForm menuForm = new MenuForm(_userId);
             menuForm.Show();
         }
-
-        private void UserAddForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

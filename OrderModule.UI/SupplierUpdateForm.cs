@@ -55,6 +55,7 @@ namespace OrderModule.UI
         {
             try
             {
+                var UpdateSupplier = _supplierService.Get(_supplierıd);
                 _supplierService.Update(new Supplier
                 {
                     SupplierID=_supplierıd,
@@ -66,6 +67,8 @@ namespace OrderModule.UI
                     Phone=tbxPhone.Text,
                     PostalCode=tbxPostalCode.Text,
                     Region=tbxRegion.Text,
+                    Saved=UpdateSupplier.Saved,
+                    SavedDate=UpdateSupplier.SavedDate,
                     Updated = _userId,
                     UpdatedDate = DateTime.Now,
 

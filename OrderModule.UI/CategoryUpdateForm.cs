@@ -53,10 +53,13 @@ namespace OrderModule.UI
         {
             try
             {
+                var UpdateCategory = _categoryService.Get(_categoryId);
                 _categoryService.Update(new Category
                 {
                     CategoryName = tbxCategoryName.Text,
                     CategoryDescription = tbxDescription.Text,
+                    Saved=UpdateCategory.Saved,
+                    SavedDate = UpdateCategory.SavedDate,
                     Updated = _userId,
                     UpdatedDate = DateTime.Now,
 
